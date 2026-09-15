@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Задание 1</title>
+</head>
+<body>
+
+  <h1>Задание 1</h1>
+
+  <h2>Маркированный список гиперссылок</h2>
+  <ul>
+    <li>1) Абсолютная гиперссылка на главную страницу сайта kubsu.ru: <a href="http://kubsu.ru/">КубГУ</a></li>
+    <li>2) Абсолютная на главную сайта kubsu.ru в протоколе https: <a href="https://kubsu.ru">КубГУ HTTPS</a></li>
+    <li>3) Ссылка-изображение: <a href="https://kubsu.ru"><img src="https://kubsu.ru/lib/images/Group3288.png" alt="Логотип КубГУ"></a></li>
+    <li>4) Сокращенная ссылка на внутреннюю страницу: <a href="about/history.html">История</a></li>
+    <li>5) Сокращенная ссылка на главную страницу: <a href="/">Главная</a></li>
+    <li>6) Ссылка на фрагмент текущей страницы: <a href="#form-section">Перейти к форме</a></li>
+    <li>7) Ссылка с тремя параметрами в URL: <a href="https://example.com/?p1=1&p2=2&p3=3">Три параметра</a></li>
+    <li>8) Ссылка с параметром id в URL: <a href="https://example.com/?id=10">Параметр ID</a></li>
+    <li>9) Относительная на страницу в текущем каталоге: <a href="contacts.html">Контакты</a></li>
+    <li>10) Относительная на страницу в каталоге about: <a href="about/team.html">Наша команда</a></li>
+    <li>11) Относительная на страницу в каталоге уровнем выше текущего: <a href="../index.html">На уровень выше</a></li>
+    <li>12) Относительная на страницу в каталоге двумя уровнями выше: <a href="../../index.html">На два уровня выше</a></li>
+    <li>13) Контекстная в тексте абзаца: В данном предложении находится <a href="https://example.com">контекстная ссылка</a>, встроенная прямо в текст.</li>
+    <li>14) Ссылка на фрагмент страницы стороннего сайта: <a href="https://wikipedia.org">История HTML на Википедии</a></li>
+    <li>15) Ссылки из прямоугольных и круглых областей картинки (HTML-тег map):
+      <br>
+      <img src="https://www.kubsu.ru/sites/all/themes/portal_kubsu/logo.png" alt="Интерактивная карта" usemap="#workmap">
+      <map name="workmap">
+        <area shape="rect" coords="34,44,270,105" alt="Прямоугольник" href="https://example.com">
+        <area shape="circle" coords="150,75,45" alt="Круг" href="https://example.com">
+      </map>
+    </li>
+    <li>16) Ссылка с пустым href: <a href="">Пустой href</a></li>
+    <li>17) Ссылка без href: <a>Ссылка без href</a></li>
+    <li>18) Ссылка, по которой запрещен переход поисковикам: <a href="https://example.com" rel="nofollow">Скрытая ссылка</a></li>
+    <li>19) Запрещенная для индексации поисковиками: <a href="https://example.com" rel="noindex, nofollow">Неиндексируемая ссылка</a></li>
+    <li>20) Нумерованный список ссылок с подписями title:
+      <ol>
+        <li><a href="https://example.com" title="Первая полезная ссылка">Ссылка один</a></li>
+        <li><a href="https://example.com" title="Вторая полезная ссылка">Ссылка два</a></li>
+      </ol>
+    </li>
+	<li>21) Ссылка на файл на сервере FTP с авторизацией: <a href="ftp://user:password@://example.com">Скачать файл с FTP</a></li>
+  </ul>
+
+  <h2 id="form-section">Форма</h2>
+  <form action="https://example.com" method="POST">
+    <p>
+      <label>1) ФИО (текстовое поле):<br>
+        <input type="text" name="fio" required placeholder="Иванов Иван Иванович">
+      </label>
+    </p>
+
+    <p>
+      <label>2) Телефон (поле tel):<br>
+        <input type="tel" name="phone" placeholder="+7 (999) 999-99-99">
+      </label>
+    </p>
+
+    <p>
+      <label>3) e-mail (поле email):<br>
+        <input type="email" name="email" placeholder="example@mail.ru">
+      </label>
+    </p>
+
+    <p>
+      <label>4) Дата рождения (поле даты):<br>
+        <input type="date" name="birthday">
+      </label>
+    </p>
+
+    <p>
+      5) Пол (радиокнопки):<br>
+      <label>
+        <input type="radio" name="gender" value="male"> Мужской
+      </label>
+      <label>
+        <input type="radio" name="gender" value="female"> Женский
+      </label>
+    </p>
+
+    <p>
+      <label>6) Любимый язык программирования (множественный выбор из списка):<br>
+        <select name="languages[]" multiple size="11">
+          <option value="pascal">Pascal</option>
+          <option value="c">C</option>
+          <option value="cpp">C++</option>
+          <option value="javascript">JavaScript</option>
+          <option value="php">PHP</option>
+          <option value="python">Python</option>
+          <option value="java">Java</option>
+          <option value="haskel">Haskel</option>
+          <option value="clojure">Clojure</option>
+          <option value="prolog">Prolog</option>
+          <option value="scala">Scala</option>
+        </select>
+      </label>
+    </p>
+
+    <p>
+      <label>7) Биография (многострочное текстовое поле):<br>
+        <textarea name="biography" rows="5" cols="40" placeholder="Расскажите о себе..."></textarea>
+      </label>
+    </p>
+
+    <p>
+      <label>8) С контрактом ознакомлен(а) (чекбокс):<br>
+        <input type="checkbox" name="contract" value="agreed" required> С контрактом ознакомлен(а)
+      </label>
+    </p>
+
+    <p>
+      9) Кнопка «Сохранить»:<br>
+      <button type="submit">Сохранить</button>
+    </p>
+  </form>
+
+</body>
+</html>
