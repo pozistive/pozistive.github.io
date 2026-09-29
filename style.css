@@ -1,22 +1,29 @@
-/* Базовые настройки */
-body {
+/* Базовые настройки для правильного прижимания футера к низу */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #faf6f5; /* Мягкий теплый пастельный фон */
-    color: #555555; /* Приглушенный цвет текста вместо жесткого черного */
 }
 
-/* Ограничивающий контейнер (макс. 960px, выравнивание по центру) */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #faf6f5; /* Нежный пудровый фон всей страницы */
+    color: #6d5958; /* Мягкий кофейный цвет текста вместо резкого черного */
+    display: flex;
+    flex-direction: column; /* Выстраиваем элементы строго вертикально сверху вниз */
+}
+
+/* Ограничивающий контейнер (макс. 960px, строго по центру) */
 .container {
     max-width: 960px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
 }
 
-/* Шапка сайта — на всю ширину, очень нежная */
+/* 1. ШАПКА: на всю ширину окна, светлая */
 #main-header {
     width: 100%;
     background-color: #ffffff;
@@ -38,20 +45,19 @@ body {
     width: 40px;
     height: 40px;
     margin-right: 12px;
-    background-color: #f4ece8; /* Пастельная заглушка под логотип */
+    background-color: #f4ece8;
     border-radius: 50%;
 }
 
 #site-title {
     font-size: 22px;
     font-weight: 500;
-    color: #6d5958; /* Мягкий кофейно-серый оттенок */
-    letter-spacing: 0.5px;
+    color: #6d5958;
 }
 
-/* Меню — пастельный приглушенный красный (кораллово-розовый) */
+/* 2. МЕНЮ: нежно-красный (пастельный коралловый) цвет */
 #main-nav {
-    background-color: #e5989b; /* Красивый пастельный коралловый */
+    background-color: #e5989b; /* Мягкий пастельный коралл */
     width: 100%;
 }
 
@@ -71,14 +77,15 @@ body {
     transition: background-color 0.2s;
 }
 
-/* Изменение фона при наведении и для активной вкладки */
+/* При наведении цвет становится чуть более пудровым */
 #main-nav a:hover, 
 #main-nav a.active {
-    background-color: #b5828c; /* Чуть более глубокий пастельный оттенок */
+    background-color: #b5828c; 
 }
 
-/* Основной контент */
+/* 3. КОНТЕНТ: занимает всё свободное место в центре */
 #main-content {
+    flex: 1 0 auto; /* Растягивается, выталкивая футер в самый низ страницы */
     padding: 40px 20px;
 }
 
@@ -87,7 +94,7 @@ h1, h2 {
     font-weight: 400;
 }
 
-/* Легкая пастельная таблица */
+/* ЛЕГКАЯ ТАБЛИЦА БЕЗ ТЕМНО-СИНЕГО ЦВЕТА */
 .data-table {
     width: 100%;
     border-collapse: collapse;
@@ -96,41 +103,47 @@ h1, h2 {
     background-color: #ffffff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(109, 89, 88, 0.04); /* Едва заметная тень */
+    box-shadow: 0 2px 8px rgba(109, 89, 88, 0.04);
 }
 
-/* Оформление ячеек таблицы */
+/* Внутренние рамки делаем очень тонкими и пастельными */
 .data-table th, 
 .data-table td {
     padding: 16px 20px;
     text-align: left;
     border-bottom: 1px solid #f4ece8; 
+    border-right: 1px solid #f4ece8;
 }
 
-/* Нежная шапка таблицы */
+.data-table th:last-child, 
+.data-table td:last-child {
+    border-right: none; /* Убираем крайнюю правую границу */
+}
+
+/* Мягкая пастельная шапка таблицы вместо темно-синей */
 .data-table th {
-    background-color: #f7edea; /* Светлый пудровый фон */
+    background-color: #f7edea; /* Светло-пудровый пастельный фон */
     color: #6d5958;
     font-weight: 600;
-    border-bottom: 2px solid #e5989b; /* Тонкий пастельный акцент */
+    border-bottom: 2px solid #e5989b; /* Тонкая коралловая полоска снизу */
 }
 
-/* Пастельная "зебра" — чередование строк */
+/* Пастельное чередование строк (зебра) */
 .data-table tbody tr:nth-child(odd) {
     background-color: #ffffff;
 }
 
 .data-table tbody tr:nth-child(even) {
-    background-color: #fdfbfb; /* Очень мягкий белый оттенок */
+    background-color: #fdfbfb; /* Едва заметный нежный оттенок */
 }
 
-/* Мягкая подсветка строки при наведении */
 .data-table tbody tr:hover {
-    background-color: #f4ece8;
+    background-color: #f4ece8; /* Подсветка при наведении */
 }
 
-/* Подвал сайта (на всю ширину) */
+/* 4. ПОДВАЛ: жестко зафиксирован в самом низу окна */
 #main-footer {
+    flex-shrink: 0;
     width: 100%;
     background-color: #ffffff;
     border-top: 1px solid #f0e6e3;
@@ -138,5 +151,4 @@ h1, h2 {
     text-align: center;
     padding: 20px 0;
     font-size: 13px;
-    margin-top: 50px;
 }
