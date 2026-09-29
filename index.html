@@ -125,42 +125,38 @@
         </tbody>
       </table>
     </section>
-
-    <!-- Секция с формой из Задания 1 (Паттерны исправлены!) -->
     <section id="form-container-block">
       <h2 id="form-section">Форма</h2>
-            <form action="https://google.com" method="POST">
+      <form action="https://google.com" method="POST" id="main-form">
         <p>
           <label>1) ФИО (текстовое поле):<br>
-            <!-- Обязательное поле. Разрешены только русские/английские буквы, дефисы и пробелы (минимум 2 символа) -->
-            <input type="text" name="fio" required placeholder="Иванов Иван Иванович" pattern="^[A-Za-zА-Яа-яЁё\s\-]{2,}$" title="Разрешены только буквы, дефисы и пробелы (минимум 2 символа)">
+            <!-- Разрешены только буквы, пробелы и дефисы. Минимум 2 символа. Цифры запрещены -->
+            <input type="text" name="fio" id="input-fio" required placeholder="Иванов Иван Иванович" pattern="^[A-Za-zА-Яа-яЁё\s\-]{2,}$" title="Разрешены только буквы, дефисы и пробелы (минимум 2 символа)">
           </label>
         </p>
 
         <p>
           <label>2) Телефон (поле tel):<br>
-            <!-- Обязательное поле. Разрешены ТОЛЬКО цифры (от 7 до 15 цифр, без плюсов, скобок и дефисов) -->
-            <input type="tel" name="phone" required placeholder="89991234567" pattern="^[0-9]{7,15}$" title="Разрешены только цифры (от 7 до 15 знаков)">
+            <!-- Разрешены ТОЛЬКО цифры. Длина от 7 до 15 символов. Одиночная цифра не пройдет -->
+            <input type="tel" name="phone" id="input-phone" required placeholder="89991234567" pattern="^[0-9]{7,15}$" title="Разрешены только цифры (от 7 до 15 знаков)">
           </label>
         </p>
 
         <p>
           <label>3) e-mail (поле email):<br>
-            <!-- Обязательное поле. Встроенная валидация типа email сработает автоматически -->
-            <input type="email" name="email" required placeholder="example@mail.ru">
+            <!-- Добавлен строгий паттерн для почты, чтобы отсечь адреса вроде -@m.ru -->
+            <input type="email" name="email" id="input-email" required placeholder="example@mail.ru" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Введите корректный адрес электронной почты (например, example@mail.ru)">
           </label>
         </p>
 
         <p>
           <label>4) Дата рождения (поле даты):<br>
-            <!-- Обязательное поле -->
             <input type="date" name="birthday" required>
           </label>
         </p>
 
         <p>
           5) Пол (радиокнопки):<br>
-          <!-- Обязательное поле (атрибут required на первой кнопке делает обязательным весь выбор) -->
           <label>
             <input type="radio" name="gender" value="male" required> Мужской
           </label>
@@ -171,7 +167,6 @@
 
         <p>
           <label>6) Любимый язык программирования (множественный выбор из списка):<br>
-            <!-- Обязательное поле. Пользователь должен выбрать хотя бы один язык -->
             <select name="languages[]" multiple size="11" required>
               <option value="pascal">Pascal</option>
               <option value="c">C</option>
@@ -190,14 +185,12 @@
 
         <p>
           <label>7) Биография (многострочное текстовое поле):<br>
-            <!-- Обязательное поле -->
             <textarea name="biography" rows="5" cols="40" required placeholder="Расскажите о себе..."></textarea>
           </label>
         </p>
 
         <p>
           <label>8) С контрактом ознакомлен(а) (чекбокс):<br>
-            <!-- Обязательное поле. Кнопка "Сохранить" не сработает, пока галочка не будет поставлена -->
             <input type="checkbox" name="contract" value="agreed" required> С контрактом ознакомлен(а)
           </label>
         </p>
@@ -207,8 +200,45 @@
           <button type="submit">Сохранить</button>
         </p>
       </form>
-    </section>
 
+      <!-- Жесткая JS-валидация перед отправкой формы -->
+      <script>
+        document.getElementById('main-form').addEventListener('submit', function(event) {
+          const fio = document.getElementById('input-fio').value;
+          const phone = document.getElementById('input-phone').value;
+          const email = document.getElementById('input-email').value;
+
+          // Регулярные выражения (дублируют HTML-паттерны для надежности)
+          const fioRegex = /^[A-Za-zА-Яа-яЁё\s\-]{2,}$/;
+          const phoneRegex = /^[0-9]{7,15}$/;
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+          let valid = true;
+          let errorMessage = "";
+
+          if (!fioRegex.test(fio)) {
+            valid = false;
+            errorMessage += "Ошибка в ФИО: разрешены только буквы, дефисы и пробелы (минимум 2 символа).\n";
+          }
+
+          if (!phoneRegex.test(phone)) {
+            valid = false;
+            errorMessage += "Ошибка в Телефоне: разрешены только цифры (от 7 до 15 символов).\n";
+          }
+
+          if (!emailRegex.test(email)) {
+            valid = false;
+            errorMessage += "Ошибка в E-mail: введите корректный адрес почты.\n";
+          }
+
+          // Если хотя бы одно поле не прошло проверку — отменяем отправку формы
+          if (!valid) {
+            event.preventDefault();
+            alert(errorMessage);
+          }
+        });
+      </script>
+    </section>
   </main>
 
   <!-- Подвал сайта (на всю ширину окна) -->
