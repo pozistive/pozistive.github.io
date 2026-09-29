@@ -1,4 +1,4 @@
-/* Базовые настройки для правильного прижимания футера к низу */
+/* Базовые настройки для прижимания футера */
 html, body {
     height: 100%;
     margin: 0;
@@ -8,13 +8,13 @@ html, body {
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     line-height: 1.6;
-    background-color: #faf6f5; /* Нежный пудровый фон всей страницы */
-    color: #6d5958; /* Мягкий кофейный цвет текста вместо резкого черного */
+    background-color: #faf6f5; /* Пастельный мягкий фон */
+    color: #6d5958; /* Приглушенный цвет текста */
     display: flex;
-    flex-direction: column; /* Выстраиваем элементы строго вертикально сверху вниз */
+    flex-direction: column;
 }
 
-/* Ограничивающий контейнер (макс. 960px, строго по центру) */
+/* Ограничивающий контейнер (макс. 960px, по центру) */
 .container {
     max-width: 960px;
     width: 100%;
@@ -23,12 +23,12 @@ body {
     box-sizing: border-box;
 }
 
-/* 1. ШАПКА: на всю ширину окна, светлая */
+/* Шапка сайта */
 #main-header {
     width: 100%;
     background-color: #ffffff;
     border-bottom: 1px solid #f0e6e3;
-    padding: 15px 0;
+    padding: 20px 0;
 }
 
 .header-content {
@@ -42,22 +42,22 @@ body {
 }
 
 .logo-img {
-    width: 40px;
-    height: 40px;
-    margin-right: 12px;
+    width: 45px;
+    height: 45px;
+    margin-right: 15px;
     background-color: #f4ece8;
-    border-radius: 50%;
+    border-radius: 8px;
 }
 
 #site-title {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 500;
     color: #6d5958;
 }
 
-/* 2. МЕНЮ: нежно-красный (пастельный коралловый) цвет */
+/* УВЕЛИЧЕННОЕ МЕНЮ (Пастельно-красный/коралловый фон) */
 #main-nav {
-    background-color: #e5989b; /* Мягкий пастельный коралл */
+    background-color: #e5989b;
     width: 100%;
 }
 
@@ -68,24 +68,25 @@ body {
     display: flex;
 }
 
+/* Увеличены внутренние отступы (padding) до 20px сверху/снизу и 25px по бокам */
 #main-nav a {
     display: block;
-    padding: 14px 20px;
+    padding: 20px 25px; 
     color: #ffffff;
     text-decoration: none;
     font-weight: 500;
+    font-size: 16px;
     transition: background-color 0.2s;
 }
 
-/* При наведении цвет становится чуть более пудровым */
 #main-nav a:hover, 
 #main-nav a.active {
-    background-color: #b5828c; 
+    background-color: #b5828c; /* Пастельный акцент при наведении */
 }
 
-/* 3. КОНТЕНТ: занимает всё свободное место в центре */
+/* Основной контент */
 #main-content {
-    flex: 1 0 auto; /* Растягивается, выталкивая футер в самый низ страницы */
+    flex: 1 0 auto;
     padding: 40px 20px;
 }
 
@@ -94,7 +95,7 @@ h1, h2 {
     font-weight: 400;
 }
 
-/* ЛЕГКАЯ ТАБЛИЦА БЕЗ ТЕМНО-СИНЕГО ЦВЕТА */
+/* Легкая пастельная таблица */
 .data-table {
     width: 100%;
     border-collapse: collapse;
@@ -106,7 +107,6 @@ h1, h2 {
     box-shadow: 0 2px 8px rgba(109, 89, 88, 0.04);
 }
 
-/* Внутренние рамки делаем очень тонкими и пастельными */
 .data-table th, 
 .data-table td {
     padding: 16px 20px;
@@ -117,31 +117,31 @@ h1, h2 {
 
 .data-table th:last-child, 
 .data-table td:last-child {
-    border-right: none; /* Убираем крайнюю правую границу */
+    border-right: none;
 }
 
-/* Мягкая пастельная шапка таблицы вместо темно-синей */
+/* Мягкая пастельная шапка таблицы */
 .data-table th {
-    background-color: #f7edea; /* Светло-пудровый пастельный фон */
+    background-color: #f7edea;
     color: #6d5958;
     font-weight: 600;
-    border-bottom: 2px solid #e5989b; /* Тонкая коралловая полоска снизу */
+    border-bottom: 2px solid #e5989b;
 }
 
-/* Пастельное чередование строк (зебра) */
+/* Разделение фона строк (Зебра) */
 .data-table tbody tr:nth-child(odd) {
     background-color: #ffffff;
 }
 
 .data-table tbody tr:nth-child(even) {
-    background-color: #fdfbfb; /* Едва заметный нежный оттенок */
+    background-color: #fdfbfb;
 }
 
 .data-table tbody tr:hover {
-    background-color: #f4ece8; /* Подсветка при наведении */
+    background-color: #f4ece8;
 }
 
-/* 4. ПОДВАЛ: жестко зафиксирован в самом низу окна */
+/* Подвал сайта (зафиксирован внизу) */
 #main-footer {
     flex-shrink: 0;
     width: 100%;
