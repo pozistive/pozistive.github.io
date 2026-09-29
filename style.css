@@ -1,60 +1,58 @@
-/* Обнуление базовых отступов */
+/* Базовые настройки */
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #faf6f5; /* Мягкий теплый пастельный фон */
+    color: #555555; /* Приглушенный цвет текста вместо жесткого черного */
 }
 
-/* Ограничивающий контейнер для контента и меню (макс. 960px, по центру) */
+/* Ограничивающий контейнер (макс. 960px, выравнивание по центру) */
 .container {
     max-width: 960px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 20px;
     box-sizing: border-box;
 }
 
-/* Шапка сайта — тянется на всю ширину */
+/* Шапка сайта — на всю ширину, очень нежная */
 #main-header {
     width: 100%;
-    background-color: #2c3e50;
-    color: #ffffff;
-    padding: 20px 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0e6e3;
+    padding: 15px 0;
 }
 
-/* Содержимое шапки */
 .header-content {
     display: flex;
     align-items: center;
 }
 
-/* Блок логотипа и названия */
 #logo-block {
     display: flex;
     align-items: center;
 }
 
 .logo-img {
-    width: 50px;
-    height: 50px;
-    margin-right: 15px;
-    background-color: #ecf0f1; /* Временный фон, если картинки нет */
-    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+    background-color: #f4ece8; /* Пастельная заглушка под логотип */
+    border-radius: 50%;
 }
 
 #site-title {
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 1px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #6d5958; /* Мягкий кофейно-серый оттенок */
+    letter-spacing: 0.5px;
 }
 
-/* Навигационное меню (ограничено 960px внутри .container) */
+/* Меню — пастельный приглушенный красный (кораллово-розовый) */
 #main-nav {
-    background-color: #34495e;
-    margin-top: 0;
-    margin-bottom: 20px;
+    background-color: #e5989b; /* Красивый пастельный коралловый */
+    width: 100%;
 }
 
 #main-nav ul {
@@ -64,76 +62,81 @@ body {
     display: flex;
 }
 
-#main-nav li {
-    margin: 0;
-}
-
 #main-nav a {
     display: block;
-    padding: 15px 20px;
-    color: #fff;
+    padding: 14px 20px;
+    color: #ffffff;
     text-decoration: none;
-    transition: background-color 0.3s;
+    font-weight: 500;
+    transition: background-color 0.2s;
 }
 
+/* Изменение фона при наведении и для активной вкладки */
 #main-nav a:hover, 
 #main-nav a.active {
-    background-color: #1abc9c;
+    background-color: #b5828c; /* Чуть более глубокий пастельный оттенок */
 }
 
 /* Основной контент */
 #main-content {
-    background-color: #ffffff;
-    padding: 30px;
-    margin-bottom: 40px;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 40px 20px;
 }
 
-/* Стилизация таблицы */
+h1, h2 {
+    color: #6d5958;
+    font-weight: 400;
+}
+
+/* Легкая пастельная таблица */
 .data-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 16px;
+    margin: 30px 0;
+    font-size: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(109, 89, 88, 0.04); /* Едва заметная тень */
 }
 
+/* Оформление ячеек таблицы */
 .data-table th, 
 .data-table td {
-    padding: 12px 15px;
-    border: 1px solid #dddddd;
+    padding: 16px 20px;
     text-align: left;
+    border-bottom: 1px solid #f4ece8; 
 }
 
-/* Заголовок таблицы */
+/* Нежная шапка таблицы */
 .data-table th {
-    background-color: #2c3e50;
-    color: #ffffff;
-    font-weight: bold;
+    background-color: #f7edea; /* Светлый пудровый фон */
+    color: #6d5958;
+    font-weight: 600;
+    border-bottom: 2px solid #e5989b; /* Тонкий пастельный акцент */
 }
 
-/* Разделение фона четных и нечетных строк (Зебра) */
+/* Пастельная "зебра" — чередование строк */
 .data-table tbody tr:nth-child(odd) {
-    background-color: #f3f3f3;
-}
-
-.data-table tbody tr:nth-child(even) {
     background-color: #ffffff;
 }
 
-/* Подсветка строки при наведении (опционально для красоты) */
-.data-table tbody tr:hover {
-    background-color: #f1c40f;
-    color: #000;
+.data-table tbody tr:nth-child(even) {
+    background-color: #fdfbfb; /* Очень мягкий белый оттенок */
 }
 
-/* Подвал сайта — тянется на всю ширину */
+/* Мягкая подсветка строки при наведении */
+.data-table tbody tr:hover {
+    background-color: #f4ece8;
+}
+
+/* Подвал сайта (на всю ширину) */
 #main-footer {
     width: 100%;
-    background-color: #2c3e50;
-    color: #bdc3c7;
+    background-color: #ffffff;
+    border-top: 1px solid #f0e6e3;
+    color: #a39391;
     text-align: center;
-    padding: 15px 0;
-    font-size: 14px;
-    margin-top: auto;
+    padding: 20px 0;
+    font-size: 13px;
+    margin-top: 50px;
 }
