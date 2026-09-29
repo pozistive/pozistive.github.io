@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Задание 2 — Легкий стиль</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Задание 2 — Пастельный стиль</title>
+    <!-- Добавлен параметр ?v=2, чтобы заставить браузер обновить стили и убрать темно-синий цвет -->
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
-    <!-- Шапка сайта (на всю ширину) -->
+    <!-- 1. СВЕРХУ: Шапка сайта -->
     <header id="main-header">
         <div class="container header-content">
             <div id="logo-block">
-                <img src="image.png" alt="Логотип сайта" class="logo-img">
-                <span id="site-title">(с) Николай Кульшенёв</span>
+                <img src="image.png" alt="Логотип" class="logo-img">
+                <span id="site-title">Творческая Студия</span>
             </div>
         </div>
     </header>
 
-    <!-- Красное главное меню (макс. 960px, по центру) -->
+    <!-- 2. СВЕРХУ: Навигационное меню сразу под шапкой -->
     <nav id="main-nav">
         <div class="container">
             <ul>
@@ -30,16 +31,16 @@
         </div>
     </nav>
 
-    <!-- Основной контент (макс. 960px, по центру) -->
+    <!-- 3. ЦЕНТР: Основной контент страницы -->
     <main id="main-content" class="container">
         <section id="about">
-            <h1>Простые решения для бизнеса</h1>
-            <p>Мы создаем минималистичные и удобные веб-сайты. Ниже вы можете ознакомиться с нашими тарифными планами на разработку.</p>
+            <h1>Минимализм и гармония</h1>
+            <p>Ниже представлена легкая пастельная таблица без грубых темных рамок.</p>
         </section>
 
         <!-- Легкая таблица (4 колонки, 6 строк) -->
         <section id="table-section">
-            <h2>Наши тарифные планы</h2>
+            <h2>Стоимость услуг</h2>
             <table class="data-table">
                 <thead>
                     <tr>
@@ -69,7 +70,6 @@
                         <td>30 000 ₽</td>
                     </tr>
                     <tr>
-                        <!-- Объединяем 3 ячейки по горизонтали для кастомного тарифа -->
                         <td>Премиум VIP</td>
                         <td colspan="3">Индивидуальный расчет стоимости и сроков под ключ</td>
                     </tr>
@@ -90,10 +90,10 @@
         </section>
     </main>
 
-    <!-- Подвал сайта (на всю ширину) -->
+    <!-- 4. ВНИЗУ: Подвал сайта -->
     <footer id="main-footer">
         <div class="container">
-            <p>&copy; (С) Кульшенёв Николай.</p>
+            <p>&copy; 2026 Творческая Студия. Все права защищены.</p>
         </div>
     </footer>
 
