@@ -6,9 +6,9 @@
     margin: 0;
     padding: 0;
 }
-
+@import url('https://googleapis.com');
 body {
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Neue', cursive;
     background-color: #fffcee; /* Мягкий тёплый светло-пастельно-жёлтый фон сайта */
     color: #434b4d; 
     line-height: 1.7;
