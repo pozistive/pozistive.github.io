@@ -3,30 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chill Пастельная Страница</title>
+    <title>Уютный и мягкий Chill Сайт</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="main-header">
-        <h1>Header (Шапка)</h1>
-    </header>
+    <!-- Единая верхняя зона (Шапка + Навигация) -->
+    <div class="top-story-zone">
+        <header class="main-header">
+            <h1>Header (Шапка)</h1>
+        </header>
 
-    <nav class="main-nav">
-        <ul class="nav-list">
-            <li><a href="#link1">Главная</a></li>
-            <li><a href="#link2">О нас</a></li>
-            <li><a href="#link3">Услуги</a></li>
-            <li><a href="#link4">Контакты</a></li>
-        </ul>
-    </nav>
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li><a href="#link1">Главная</a></li>
+                <li><a href="#link2">О нас</a></li>
+                <li><a href="#link3">Услуги</a></li>
+                <li><a href="#link4">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
 
-    <!-- Обертка контейнера, чтобы управлять порядком элементов на мобилках -->
+    <!-- Вводный приятный текст, подготавливающий к контенту -->
+    <section class="intro-section">
+        <h2>Добро пожаловать в наше пространство</h2>
+        <p>Мы создали это место, чтобы вы могли расслабиться и спокойно изучить всю необходимую информацию. Никакой суеты — только мягкие тона, чистый дизайн и удобная структура.</p>
+    </section>
+
+    <!-- Основной контейнер (на мобильных порядок блоков изменится через CSS order) -->
     <div class="content-wrapper">
         
-        <!-- Ссылки идут ПЕРВЫМИ в HTML по условию п.3 -->
+        <!-- Блок ссылок (первый в HTML) -->
         <aside class="sidebar-links">
             <h2>Полезные ссылки</h2>
+            <p>Небольшое описание к ресурсам для создания уюта.</p>
             <ul>
                 <li><a href="#">Ресурс 1</a></li>
                 <li><a href="#">Ресурс 2</a></li>
@@ -34,9 +44,16 @@
             </ul>
         </aside>
 
-        <!-- Таблица идет ВТОРОЙ в HTML -->
+        <!-- Блок основного контента с картинкой и таблицей (второй в HTML) -->
         <main class="main-content">
-            <h2>Контентная таблица</h2>
+            <h2>Контентная зона</h2>
+            
+            <!-- Место для картинки сайта -->
+            <div class="hero-image-wrapper">
+                <img src="https://www.kubsu.ru/sites/all/themes/portal_kubsu/logo.png" alt="Расслабляющая пастельная атмосфера" class="site-image">
+            </div>
+
+            <h3>Наши услуги и сроки</h3>
             <div class="table-container">
                 <table>
                     <thead>
@@ -65,7 +82,7 @@
     </div>
 
     <footer class="main-footer">
-        <p>Footer (Футер) &copy; 2026. Расслабленный пастельный стиль.</p>
+        <p>Footer (Футер) &copy; 2026. Полный chill и гармония.</p>
     </footer>
 
 </body>
