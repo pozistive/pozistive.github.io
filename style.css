@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. Базовые «Chill» стили и Пастельная палитра (Общие настройки)
+   1. Сброс стилей и Глобальные Уютные Настройки
    ========================================================================== */
 * {
     box-sizing: border-box;
@@ -8,93 +8,129 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f7f9fa; /* Мягкий кремово-серый фон */
-    color: #4a5568; /* Неглубокий темный для расслабленного чтения */
-    line-height: 1.6;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #fffdf9; /* Сверхмягкий тёплый кремово-белый фон */
+    color: #434b4d; /* Приглушенный графитовый, приятный для глаз */
+    line-height: 1.7;
 }
 
-h1, h2 {
+h1, h2, h3 {
+    color: #2c3e35; /* Глубокий пастельно-зеленый оттенок для заголовков */
     font-weight: 600;
-    color: #2d3748;
-    margin-bottom: 10px;
-}
-
-/* Общие стили блоков для красоты */
-header, nav, aside, main, footer {
-    padding: 20px;
-    border-radius: 16px; /* Закругленные углы для мягкости */
-    margin: 10px;
+    margin-bottom: 12px;
 }
 
 /* ==========================================================================
    2. Мобильная верстка (По умолчанию — Mobile First)
    ========================================================================== */
 
-/* Все блоки занимают 100% ширины (минус внешние отступы margin) */
-.main-header {
-    background-color: #e2f0cb; /* Пастельный нежно-зеленый/мятный */
+/* Единая верхняя зона: шапка и навигация сливаются в один нежно-зелёный блок до краев экрана */
+.top-story-zone {
+    background: linear-gradient(135deg, #e3eed4 0%, #d2e7d6 100%); /* Пастельный зелёный градиент */
+    padding: 30px 20px;
     text-align: center;
 }
 
-/* Главное меню: ссылки вертикальным списком */
-.main-nav {
-    background-color: #b5ead7; /* Светлая пастельная бирюза */
+.main-header h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
 }
 
+/* Главное меню на мобильных: вертикальная аккуратная стопка */
 .nav-list {
     list-style: none;
     display: flex;
-    flex-direction: column; /* Вертикальный список на смартфонах (п.1) */
+    flex-direction: column;
     gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .nav-list a {
     display: block;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.6);
     padding: 12px;
-    text-align: center;
     text-decoration: none;
-    color: #333;
-    border-radius: 8px;
+    color: #2c3e35;
+    border-radius: 20px; /* Очень мягкие круглые кнопочки */
     font-weight: 500;
-    transition: background 0.3s;
+    backdrop-filter: blur(4px); /* Эффект матового стекла */
+    transition: all 0.3s ease;
 }
 
 .nav-list a:hover {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
 }
 
-/* Контейнер для контента и сайдбара */
+/* Секция с приятным вводным текстом — тёплая жёлтая подложка до краёв */
+.intro-section {
+    background-color: #fef5d1; /* Тёплый пастельно-жёлтый */
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.intro-section p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+}
+
+/* Обертка для контента и сайдбара */
 .content-wrapper {
     display: flex;
-    flex-direction: column; /* Элементы идут друг за другом сверху вниз */
+    flex-direction: column; 
 }
 
-/* Сайдбар со ссылками */
+/* Сайдбар со ссылками на мобильном падает ВНИЗ таблицы */
 .sidebar-links {
-    background-color: #ffdac1; /* Нежный пастельный персик */
-    order: 2; /* Смещаем вниз таблицы (п.3) */
+    background-color: #fcf0c8; /* Мягкий песочно-жёлтый */
+    padding: 35px 20px;
+    order: 2; /* Смещаем вниз (п.3 ТЗ) */
 }
 
 .sidebar-links ul {
-    list-style-position: inside;
-    margin-top: 10px;
+    list-style: none;
+    margin-top: 15px;
+}
+
+.sidebar-links li {
+    margin-bottom: 10px;
 }
 
 .sidebar-links a {
-    color: #6b7280;
+    color: #4d6458;
+    text-decoration: none;
+    border-bottom: 1px dashed #4d6458;
 }
 
-/* Основной контент с таблицей */
+/* Основной контент: на мобильном отображается ВЫШЕ списка ссылок */
 .main-content {
-    background-color: #ffb7b2; /* Мягкий пастельный кораллово-розовый */
-    order: 1; /* Визуально поднимаем таблицу ВЫШЕ списка ссылок (п.3) */
+    background-color: #eaf4de; /* Свежий пастельно-зелёный */
+    padding: 35px 20px;
+    order: 1; /* Поднимаем наверх (п.3 ТЗ) */
 }
 
-/* Стилизация пастельной таблицы */
+/* Место для картинки сайта */
+.hero-image-wrapper {
+    width: 100%;
+    margin-bottom: 25px;
+    border-radius: 16px;
+    overflow: hidden; /* Чтобы картинка скруглялась по углам wrapper'а */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.site-image {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover; /* Красиво заполняет пространство */
+    display: block;
+}
+
+/* Контейнер таблицы и сама уютная таблица */
 .table-container {
-    overflow-x: auto; /* Защита от вылезания таблицы на мелких экранах */
+    overflow-x: auto;
     margin-top: 15px;
 }
 
@@ -102,29 +138,36 @@ table {
     width: 100%;
     border-collapse: collapse;
     background-color: #ffffff;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
 }
 
 th, td {
-    padding: 12px 15px;
+    padding: 14px 18px;
     text-align: left;
 }
 
 th {
-    background-color: #e2f0cb;
-    color: #4a5568;
+    background-color: #dbead5; /* Зеленоватый заголовок таблицы */
+    color: #2c3e35;
+    font-weight: 600;
 }
 
 tr:nth-child(even) {
-    background-color: #fcf8f2;
+    background-color: #fcfbfa;
 }
 
-/* Футер */
+td {
+    border-bottom: 1px solid #f0efe9;
+}
+
+/* Футер страницы до краев экрана */
 .main-footer {
-    background-color: #e8ecf1; /* Спокойный серо-голубой */
+    background-color: #ecebe4; /* Спокойный эко-серый */
+    padding: 25px 20px;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    color: #707775;
 }
 
 
@@ -133,32 +176,34 @@ tr:nth-child(even) {
    ========================================================================== */
 @media (min-width: 768px) {
     
-    /* Меню выстраивается в горизонтальную строчку, как в прошлом задании */
+    /* Меню выстраивается в элегантный горизонтальный ряд */
     .nav-list {
         flex-direction: row;
         justify-content: center;
-        gap: 20px;
+        max-width: none;
+        gap: 15px;
     }
     
     .nav-list a {
-        padding: 10px 20px;
+        padding: 8px 24px;
     }
 
-    /* Возвращаем стандартное расположение контента: сайдбар слева, таблица справа */
+    /* Располагаем сайдбар и контент бок о бок */
     .content-wrapper {
         flex-direction: row;
-        align-items: flex-start;
     }
 
-    /* Сайдбар занимает, например, 30% ширины и возвращает исходный порядок */
+    /* Возвращаем естественный порядок: ссылки слева (35% ширины) */
     .sidebar-links {
-        flex: 3;
-        order: 1; /* Теперь он первый, как в HTML-потоке */
+        flex: 35;
+        order: 1;
+        padding: 45px;
     }
 
-    /* Основной контент занимает 70% */
+    /* Табличная часть и картинка справа (65% ширины) */
     .main-content {
-        flex: 7;
-        order: 2; /* Таблица становится на свое стандартное место справа */
+        flex: 65;
+        order: 2;
+        padding: 45px;
     }
 }
