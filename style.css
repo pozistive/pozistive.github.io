@@ -1,191 +1,164 @@
-/* Общие системные настройки блочной модели */
-html, body {
-    height: 100%;
+/* ==========================================================================
+   1. Базовые «Chill» стили и Пастельная палитра (Общие настройки)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f9fa; /* Мягкий кремово-серый фон */
+    color: #4a5568; /* Неглубокий темный для расслабленного чтения */
     line-height: 1.6;
-    background-color: #faf6f5; /* Мягкий пастельный фон */
-    color: #6d5958; /* Приглушенный цвет текста */
-    display: flex;
-    flex-direction: column;
-}
-
-/* Ограничивающий контейнер (строго макс. 960px с выравниванием по центру) */
-.container {
-    max-width: 960px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-/* Шапка сайта — растягивается на всю ширину */
-#main-header {
-    width: 100%;
-    background-color: #ffffff;
-    border-bottom: 1px solid #f0e6e3;
-    padding: 15px 0;
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-}
-
-#logo-block {
-    display: flex;
-    align-items: center;
-}
-
-.logo-img {
-    height: 45px;
-    margin-right: 15px;
-}
-
-#site-title {
-    font-size: 22px;
-    font-weight: 500;
-    color: #6d5958;
-}
-
-/* УВЕЛИЧЕННОЕ МЕНЮ (Мягкий пастельно-коралловый цвет) */
-#main-nav {
-    background-color: #e5989b;
-    width: 100%;
-}
-
-#main-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-/* Большие отступы для ссылок (20px сверху/снизу, 25px по бокам) */
-#main-nav a {
-    display: block;
-    padding: 20px 25px; 
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    transition: background-color 0.2s;
-}
-
-#main-nav a:hover, 
-#main-nav a.active {
-    background-color: #b5828c; /* Изменение цвета при наведении */
-}
-
-/* Секция основного контента */
-#main-content {
-    flex: 1 0 auto;
-    padding: 40px 20px;
-    background-color: #ffffff;
-    box-sizing: border-box;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 6px;
-    box-shadow: 0 2px 10px rgba(109, 89, 88, 0.03);
 }
 
 h1, h2 {
-    color: #6d5958;
-    font-weight: 500;
-    border-bottom: 1px solid #f4ece8;
-    padding-bottom: 8px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 10px;
 }
 
-/* Стилизация легкой демонстрационной таблицы */
-.data-table {
+/* Общие стили блоков для красоты */
+header, nav, aside, main, footer {
+    padding: 20px;
+    border-radius: 16px; /* Закругленные углы для мягкости */
+    margin: 10px;
+}
+
+/* ==========================================================================
+   2. Мобильная верстка (По умолчанию — Mobile First)
+   ========================================================================== */
+
+/* Все блоки занимают 100% ширины (минус внешние отступы margin) */
+.main-header {
+    background-color: #e2f0cb; /* Пастельный нежно-зеленый/мятный */
+    text-align: center;
+}
+
+/* Главное меню: ссылки вертикальным списком */
+.main-nav {
+    background-color: #b5ead7; /* Светлая пастельная бирюза */
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Вертикальный список на смартфонах (п.1) */
+    gap: 10px;
+}
+
+.nav-list a {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.nav-list a:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Контейнер для контента и сайдбара */
+.content-wrapper {
+    display: flex;
+    flex-direction: column; /* Элементы идут друг за другом сверху вниз */
+}
+
+/* Сайдбар со ссылками */
+.sidebar-links {
+    background-color: #ffdac1; /* Нежный пастельный персик */
+    order: 2; /* Смещаем вниз таблицы (п.3) */
+}
+
+.sidebar-links ul {
+    list-style-position: inside;
+    margin-top: 10px;
+}
+
+.sidebar-links a {
+    color: #6b7280;
+}
+
+/* Основной контент с таблицей */
+.main-content {
+    background-color: #ffb7b2; /* Мягкий пастельный кораллово-розовый */
+    order: 1; /* Визуально поднимаем таблицу ВЫШЕ списка ссылок (п.3) */
+}
+
+/* Стилизация пастельной таблицы */
+.table-container {
+    overflow-x: auto; /* Защита от вылезания таблицы на мелких экранах */
+    margin-top: 15px;
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 15px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-.data-table th, 
-.data-table td {
-    padding: 14px 18px;
+th, td {
+    padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #f4ece8; 
-    border-right: 1px solid #f4ece8;
 }
 
-.data-table th:last-child, 
-.data-table td:last-child {
-    border-right: none;
+th {
+    background-color: #e2f0cb;
+    color: #4a5568;
 }
 
-/* Шапка таблицы */
-.data-table th {
-    background-color: #f7edea;
-    color: #6d5958;
-    font-weight: 600;
-    border-bottom: 2px solid #e5989b;
+tr:nth-child(even) {
+    background-color: #fcf8f2;
 }
 
-/* Зебра: разный фон четных/нечетных строк */
-.data-table tbody tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.data-table tbody tr:nth-child(even) {
-    background-color: #fdfbfb;
-}
-
-.data-table tbody tr:hover {
-    background-color: #f4ece8;
-}
-
-/* Простые стили для элементов формы */
-form p {
-    margin-bottom: 15px;
-}
-
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="date"],
-textarea,
-select {
-    width: 100%;
-    max-width: 400px;
-    padding: 8px 12px;
-    border: 1px solid #f0e6e3;
-    border-radius: 4px;
-    color: #6d5958;
-    box-sizing: border-box;
-    margin-top: 5px;
-}
-
-button[type="submit"] {
-    background-color: #e5989b;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    font-size: 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-button[type="submit"]:hover {
-    background-color: #b5828c;
-}
-
-/* Подвал сайта — растягивается на всю ширину и прижат к низу */
-#main-footer {
-    flex-shrink: 0;
-    width: 100%;
-    background-color: #ffffff;
-    border-top: 1px solid #f0e6e3;
-    color: #a39391;
+/* Футер */
+.main-footer {
+    background-color: #e8ecf1; /* Спокойный серо-голубой */
     text-align: center;
-    padding: 20px 0;
-    font-size: 13px;
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================================================
+   3. Адаптив для Планшетов и Десктопов (Media Query)
+   ========================================================================== */
+@media (min-width: 768px) {
+    
+    /* Меню выстраивается в горизонтальную строчку, как в прошлом задании */
+    .nav-list {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .nav-list a {
+        padding: 10px 20px;
+    }
+
+    /* Возвращаем стандартное расположение контента: сайдбар слева, таблица справа */
+    .content-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    /* Сайдбар занимает, например, 30% ширины и возвращает исходный порядок */
+    .sidebar-links {
+        flex: 3;
+        order: 1; /* Теперь он первый, как в HTML-потоке */
+    }
+
+    /* Основной контент занимает 70% */
+    .main-content {
+        flex: 7;
+        order: 2; /* Таблица становится на свое стандартное место справа */
+    }
 }
