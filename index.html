@@ -33,7 +33,7 @@
     <!-- Основной контейнер (Flex Box с изменением порядка на мобильных) -->
     <div class="content-wrapper" id="content">
         
-        <!-- Блок ссылок (первый в HTML, на мобильных уйдёт вниз) -->
+        <!-- Блок ссылок (первый в HTML, на мобильных уйдёт вниз благодаря order: 2) -->
         <aside class="sidebar-links" id="links">
             <h2>Островки покоя</h2>
             <p>Нажмите, если нужно перевести дух:</p>
@@ -44,13 +44,12 @@
             </ul>
         </aside>
 
-        <!-- Блок основного контента с картинкой и лавандовой таблицей (второй в HTML) -->
+        <!-- Блок основного контента с картинкой и лавандовой таблицей (второй в HTML, на мобильных поднимется вверх) -->
         <main class="main-content">
             <h2>Твой план на сегодня</h2>
             
-            <!-- Место для картинки сайта -->
             <div class="hero-image-wrapper">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11Ytp5xHb3N5dQw0a6QAW4R1y25wo7WyUIbADJpIDiw&s=10" alt="Расслабляющая пастельная атмосфера" class="site-image">
+                <img src="https://gstatic.com" alt="Расслабляющая пастельная атмосфера" class="site-image">
             </div>
 
             <h3>Дневной трекер осознанности</h3>
