@@ -7,75 +7,9 @@
     
     <!-- Подключение Bootstrap 5 CSS через CDN -->
     <link href="https://jsdelivr.net" rel="stylesheet">
-    <import url('https://googleapis.com');
-
-    <!-- Сохраняем пастельные стили из твоего ТЗ -->
-    <style>
-        body {
-            font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-            background-color: #fffcee;
-            color: #434b4d;
-        }
-        h1, h2, h3 {
-            color: #2c3e35;
-            font-weight: 600;
-        }
-        .top-story-zone {
-            background: linear-gradient(135deg, #e3eed4 0%, #d2e7d6 100%);
-        }
-        .nav-list a {
-            background-color: rgba(255, 255, 255, 0.6);
-            color: #2c3e35;
-            border-radius: 20px;
-            backdrop-filter: blur(4px);
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .nav-list a:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-            color: #2c3e35;
-        }
-        .intro-card-frame {
-            background-color: #f2f4f5;
-            border: 1px solid #e1e5e8;
-            border-radius: 16px;
-        }
-        .sidebar-links {
-            background-color: #dcedf7;
-            border: 1px solid #cfe2ee;
-            border-radius: 16px;
-        }
-        .sidebar-links a {
-            color: #3b5266;
-            text-decoration: none;
-            border-bottom: 1px dashed #3b5266;
-        }
-        .sidebar-links a:hover {
-            color: #1d2d3a;
-        }
-        .main-content {
-            background-color: #eaf4de;
-            border: 1px solid #dce8ce;
-            border-radius: 16px;
-        }
-        .site-image {
-            max-height: 350px;
-            object-fit: cover;
-            width: 100%;
-            border-radius: 12px;
-        }
-        .chill-table th {
-            background-color: #e3dff2 !important;
-            color: #4a4458;
-        }
-        .chill-table tr:nth-child(even) {
-            background-color: #fbfaff;
-        }
-        .main-footer {
-            background-color: #ecebe4;
-            color: #707775;
-        }
-    </style>
+    
+    <!-- Подключение локального файла стилей из папки alt -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -85,7 +19,6 @@
             <h1 class="display-5">Пространство Chill Out</h1>
         </header>
         <nav class="main-nav">
-            <!-- Флекс-бокс: колонка на мобильных, строка на md экранах -->
             <ul class="nav-list list-unstyled d-flex flex-column flex-md-row justify-content-center gap-2 gap-md-3 m-0 p-0">
                 <li><a href="#home" class="d-block py-2 px-4">Главная</a></li>
                 <li><a href="#intro" class="d-block py-2 px-4">О нас</a></li>
@@ -95,7 +28,7 @@
         </nav>
     </div>
 
-    <!-- Вводный текст в контейнере -->
+    <!-- Вводный текст -->
     <div class="container mb-4">
         <section class="intro-card-frame p-4 p-md-5 text-center" id="intro">
             <h2>Добро пожаловать в наше пространство</h2>
@@ -103,11 +36,11 @@
         </section>
     </div>
 
-    <!-- Основной контент-контейнер со сменой порядка (сетка Bootstrap) -->
+    <!-- Основной контент-контейнер со сменой порядка страниц -->
     <div class="container" id="content">
         <div class="row g-4">
             
-            <!-- Блок ссылок. По умолчанию order-2 (снизу), на md экранах order-md-1 (слева) -->
+            <!-- Левая колонка: Ссылки (На десктопе слева, на мобильных снизу) -->
             <aside class="col-12 col-md-4 order-2 order-md-1">
                 <div class="sidebar-links p-4 h-100">
                     <h2>Островки покоя</h2>
@@ -120,17 +53,17 @@
                 </div>
             </aside>
 
-            <!-- Основной контент. По умолчанию order-1 (сверху), на md экранах order-md-2 (справа) -->
+            <!-- Правая колонка: Основной контент (На десктопе справа, на мобильных сверху) -->
             <main class="col-12 col-md-8 order-1 order-md-2">
                 <div class="main-content p-4">
                     <h2>Твой план на сегодня</h2>
                     
-                    <div class="mb-4 shadow-sm overflow-hidden" style="border-radius: 12px;">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11Ytp5xHb3N5dQw0a6QAW4R1y25wo7WyUIbADJpIDiw&s=10" alt="Расслабляющая пастельная атмосфера" class="site-image img-fluid d-block">
+                    <!-- Блок с адаптивной картинкой-логотипом -->
+                    <div class="mb-4 shadow-sm overflow-hidden bg-white" style="border-radius: 12px;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11Ytp5xHb3N5dQw0a6QAW4R1y25wo7WyUIbADJpIDiw&s=10" alt="Расслабляющая пастельная атмосфера" class="img-fluid d-block mx-auto py-4">
                     </div>
 
                     <h3>Дневной трекер осознанности</h3>
-                    <!-- Адаптивная обертка таблицы в Bootstrap -->
                     <div class="table-responsive mt-3 rounded-3">
                         <table class="table chill-table m-0">
                             <thead>
@@ -165,12 +98,12 @@
         </div>
     </div>
 
-    <!-- Футер страницы -->
+    <!-- Футер -->
     <footer class="main-footer text-center py-4 mt-5">
         <p class="m-0">Footer (Футер) &copy; 2026. Атмосфера тепла и полной гармонии.</p>
     </footer>
 
-    <!-- JS Скрипты Bootstrap (опционально, для работы выпадашек/модалок, если понадобятся) -->
+    <!-- Bootstrap Bundle JS CDN -->
     <script src="https://jsdelivr.net"></script>
 </body>
 </html>
