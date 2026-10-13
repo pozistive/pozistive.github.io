@@ -49,6 +49,7 @@ h1, h2, h3 {
     margin: 0 auto;
 }
 
+/* Добавь это свойство внутрь существующего селектора .nav-list a на мобильных стилях */
 .nav-list a {
     display: block;
     background-color: rgba(255, 255, 255, 0.6);
@@ -59,6 +60,17 @@ h1, h2, h3 {
     font-weight: 500;
     backdrop-filter: blur(4px);
     transition: all 0.3s ease;
+    text-align: center; /* ИСПРАВЛЕНО: Текст меню теперь по центру на смартфонах */
+}
+
+/* Стили для новой расслабляющей объединенной строки таблицы */
+.chill-table tr.table-relax-row td {
+    text-align: center;
+    font-style: italic;
+    background-color: #f6f3ff; /* Чуть более насыщенный лавандовый акцент */
+    color: #635b75;
+    font-weight: 600;
+    padding: 18px;
 }
 
 .nav-list a:hover {
