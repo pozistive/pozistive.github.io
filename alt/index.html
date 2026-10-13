@@ -16,14 +16,15 @@
     <!-- Единая верхняя зона (Шапка + Навигация) -->
     <div class="top-story-zone py-5 px-3 text-center mb-4" id="home">
         <header class="main-header mb-4">
-            <h1 class="display-5">Пространство Chill Out</h1>
+            <h1 class="display-5 fw-bold">Пространство Chill Out</h1>
         </header>
         <nav class="main-nav">
-            <ul class="nav-list list-unstyled d-flex flex-column flex-md-row justify-content-center gap-2 gap-md-3 m-0 p-0">
-                <li><a href="#home" class="d-block py-2 px-4">Главная</a></li>
-                <li><a href="#intro" class="d-block py-2 px-4">О нас</a></li>
-                <li><a href="#content" class="d-block py-2 px-4">Трекер</a></li>
-                <li><a href="#links" class="d-block py-2 px-4">Ресурсы</a></li>
+            <!-- ИСПРАВЛЕНО: Добавлен align-items-center и w-100 для точного центрирования кнопок меню на мобильных -->
+            <ul class="nav-list list-unstyled d-flex flex-column flex-md-row justify-content-center align-items-center gap-2 gap-md-3 m-0 p-0 mx-auto" style="max-width: 400px; width: 100%;">
+                <li class="w-100"><a href="#home" class="d-block py-2 px-4 text-center">Главная</a></li>
+                <li class="w-100"><a href="#intro" class="d-block py-2 px-4 text-center">О нас</a></li>
+                <li class="w-100"><a href="#content" class="d-block py-2 px-4 text-center">Трекер</a></li>
+                <li class="w-100"><a href="#links" class="d-block py-2 px-4 text-center">Ресурсы</a></li>
             </ul>
         </nav>
     </div>
@@ -40,7 +41,7 @@
     <div class="container" id="content">
         <div class="row g-4">
             
-            <!-- Левая колонка: Ссылки (На десктопе слева, на мобильных снизу) -->
+            <!-- Левая колонка: Ссылки -->
             <aside class="col-12 col-md-4 order-2 order-md-1">
                 <div class="sidebar-links p-4 h-100">
                     <h2>Островки покоя</h2>
@@ -53,14 +54,14 @@
                 </div>
             </aside>
 
-            <!-- Правая колонка: Основной контент (На десктопе справа, на мобильных сверху) -->
+            <!-- Правая колонка: Основной контент -->
             <main class="col-12 col-md-8 order-1 order-md-2">
                 <div class="main-content p-4">
                     <h2>Твой план на сегодня</h2>
                     
                     <!-- Блок с адаптивной картинкой-логотипом -->
                     <div class="mb-4 shadow-sm overflow-hidden bg-white" style="border-radius: 12px;">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11Ytp5xHb3N5dQw0a6QAW4R1y25wo7WyUIbADJpIDiw&s=10" alt="Расслабляющая пастельная атмосфера" class="img-fluid d-block mx-auto py-4">
+                        <img src="../image_JcJQFQ.png" alt="Расслабляющая пастельная атмосфера" class="img-fluid d-block mx-auto py-4">
                     </div>
 
                     <h3>Дневной трекер осознанности</h3>
@@ -88,6 +89,12 @@
                                     <td>Чашка теплого травяного чая</td>
                                     <td>15 минут</td>
                                     <td>Ощущение текущего момента</td>
+                                </tr>
+                                <!-- ИСПРАВЛЕНО: Новая объединенная строка таблицы -->
+                                <tr class="table-relax-row">
+                                    <td colspan="3" class="text-center text-muted fst-italic py-3">
+                                        ✨ Главное правило: никуда не спешите и позвольте себе просто побыть в моменте.
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
