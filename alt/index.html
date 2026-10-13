@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Твой Уютный Уголок Спокойствия (Bootstrap)</title>
+    
+    <!-- Подключение Bootstrap 5 CSS через CDN -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <import url('https://googleapis.com');
+
+    <!-- Сохраняем пастельные стили из твоего ТЗ -->
+    <style>
+        body {
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+            background-color: #fffcee;
+            color: #434b4d;
+        }
+        h1, h2, h3 {
+            color: #2c3e35;
+            font-weight: 600;
+        }
+        .top-story-zone {
+            background: linear-gradient(135deg, #e3eed4 0%, #d2e7d6 100%);
+        }
+        .nav-list a {
+            background-color: rgba(255, 255, 255, 0.6);
+            color: #2c3e35;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .nav-list a:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #2c3e35;
+        }
+        .intro-card-frame {
+            background-color: #f2f4f5;
+            border: 1px solid #e1e5e8;
+            border-radius: 16px;
+        }
+        .sidebar-links {
+            background-color: #dcedf7;
+            border: 1px solid #cfe2ee;
+            border-radius: 16px;
+        }
+        .sidebar-links a {
+            color: #3b5266;
+            text-decoration: none;
+            border-bottom: 1px dashed #3b5266;
+        }
+        .sidebar-links a:hover {
+            color: #1d2d3a;
+        }
+        .main-content {
+            background-color: #eaf4de;
+            border: 1px solid #dce8ce;
+            border-radius: 16px;
+        }
+        .site-image {
+            max-height: 350px;
+            object-fit: cover;
+            width: 100%;
+            border-radius: 12px;
+        }
+        .chill-table th {
+            background-color: #e3dff2 !important;
+            color: #4a4458;
+        }
+        .chill-table tr:nth-child(even) {
+            background-color: #fbfaff;
+        }
+        .main-footer {
+            background-color: #ecebe4;
+            color: #707775;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Единая верхняя зона (Шапка + Навигация) -->
+    <div class="top-story-zone py-5 px-3 text-center mb-4" id="home">
+        <header class="main-header mb-4">
+            <h1 class="display-5">Пространство Chill Out</h1>
+        </header>
+        <nav class="main-nav">
+            <!-- Флекс-бокс: колонка на мобильных, строка на md экранах -->
+            <ul class="nav-list list-unstyled d-flex flex-column flex-md-row justify-content-center gap-2 gap-md-3 m-0 p-0">
+                <li><a href="#home" class="d-block py-2 px-4">Главная</a></li>
+                <li><a href="#intro" class="d-block py-2 px-4">О нас</a></li>
+                <li><a href="#content" class="d-block py-2 px-4">Трекер</a></li>
+                <li><a href="#links" class="d-block py-2 px-4">Ресурсы</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Вводный текст в контейнере -->
+    <div class="container mb-4">
+        <section class="intro-card-frame p-4 p-md-5 text-center" id="intro">
+            <h2>Добро пожаловать в наше пространство</h2>
+            <p class="lead mx-auto" style="max-width: 800px;">Мы создали это место, чтобы вы могли расслабиться и спокойно изучить всю необходимую информацию. Никакой суеты — только мягкие тона, чистый дизайн и удобная структура.</p>
+        </section>
+    </div>
+
+    <!-- Основной контент-контейнер со сменой порядка (сетка Bootstrap) -->
+    <div class="container" id="content">
+        <div class="row g-4">
+            
+            <!-- Блок ссылок. По умолчанию order-2 (снизу), на md экранах order-md-1 (слева) -->
+            <aside class="col-12 col-md-4 order-2 order-md-1">
+                <div class="sidebar-links p-4 h-100">
+                    <h2>Островки покоя</h2>
+                    <p>Нажмите, если нужно перевести дух:</p>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><a href="https://rainymood.com" target="_blank" rel="noopener">Rainy Mood — Бесконечный дождь</a></li>
+                        <li class="mb-2"><a href="https://pixelthoughts.co" target="_blank" rel="noopener">Pixel Thoughts — Медитация 60 сек</a></li>
+                        <li class="mb-2"><a href="https://asoftmurmur.com" target="_blank" rel="noopener">A Soft Murmur — Звуки природы</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Основной контент. По умолчанию order-1 (сверху), на md экранах order-md-2 (справа) -->
+            <main class="col-12 col-md-8 order-1 order-md-2">
+                <div class="main-content p-4">
+                    <h2>Твой план на сегодня</h2>
+                    
+                    <div class="mb-4 shadow-sm overflow-hidden" style="border-radius: 12px;">
+                        <img src="https://gstatic.com" alt="Расслабляющая пастельная атмосфера" class="site-image img-fluid d-block">
+                    </div>
+
+                    <h3>Дневной трекер осознанности</h3>
+                    <!-- Адаптивная обертка таблицы в Bootstrap -->
+                    <div class="table-responsive mt-3 rounded-3">
+                        <table class="table chill-table m-0">
+                            <thead>
+                                <tr>
+                                    <th>Ритуал спокойствия</th>
+                                    <th>Длительность</th>
+                                    <th>Ожидаемый эффект</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Дыхание по квадрату 4-7-8</td>
+                                    <td>5 минут</td>
+                                    <td>Снижение тревоги и полный дзен</td>
+                                </tr>
+                                <tr>
+                                    <td>Прогулка без уведомлений</td>
+                                    <td>20 минут</td>
+                                    <td>Перезагрузка мыслей и свежий воздух</td>
+                                </tr>
+                                <tr>
+                                    <td>Чашка теплого травяного чая</td>
+                                    <td>15 минут</td>
+                                    <td>Ощущение текущего момента</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+    <!-- Футер страницы -->
+    <footer class="main-footer text-center py-4 mt-5">
+        <p class="m-0">Footer (Футер) &copy; 2026. Атмосфера тепла и полной гармонии.</p>
+    </footer>
+
+    <!-- JS Скрипты Bootstrap (опционально, для работы выпадашек/модалок, если понадобятся) -->
+    <script src="https://jsdelivr.net"></script>
+</body>
+</html>
