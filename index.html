@@ -54,31 +54,32 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11Ytp5xHb3N5dQw0a6QAW4R1y25wo7WyUIbADJpIDiw&s=10" alt="Расслабляющая пастельная атмосфера" class="site-image">
             </div>
 
-            <!-- ВСТАВКА КАЛЬКУЛЯТОРА ПО ТЗ -->
+            <!-- ВСТАВКА КАЛЬКУЛЯТОРА ПО ТЗ (БЮДЖЕТНЫЙ CHILL ВАРИАНТ) -->
             <section class="calculator-section">
-                <h3>Калькулятор заказа ритуалов</h3>
+                <h3>Калькулятор ментальных покупок</h3>
                 <form id="order-form" onsubmit="return false;">
                     <div class="form-group">
-                        <label for="product-select">Выбери товар/услугу:</label>
+                        <label for="product-select">Выбери подпитку для души:</label>
                         <select id="product-select">
-                            <option value="500">Чайная церемония (500 руб.)</option>
-                            <option value="1200">Сессия медитации (1200 руб.)</option>
-                            <option value="2500">Аромамассаж (2500 руб.)</option>
+                            <option value="1">Сказать «Ом-м-м» (1 руб.)</option>
+                            <option value="5">Чашка виртуального чая (5 руб.)</option>
+                            <option value="10">Щепотка спокойствия (10 руб.)</option>
                         </select>
                     </div>
-
+            
                     <div class="form-group">
-                        <label for="quantity-input">Количество:</label>
-                        <input type="text" id="quantity-input" placeholder="Например: 2">
+                        <label for="quantity-input">Сколько тебе нужно для счастья?</label>
+                        <input type="text" id="quantity-input" placeholder="Например: 5">
                     </div>
-
-                    <button type="button" id="calculate-btn">Подсчитать стоимость</button>
+            
+                    <button type="button" id="calculate-btn">Рассчитать стоимость дзена</button>
                 </form>
-
+            
                 <!-- Блоки вывода информации -->
                 <div id="error-message" class="error-text"></div>
                 <div id="result-message" class="result-text"></div>
             </section>
+
 
             <h3>Дневной трекер осознанности</h3>
             <div class="table-container">
