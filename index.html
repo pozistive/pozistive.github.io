@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Твой Уютный Уголок Спокойствия</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Выполнение ТЗ: подключение внешнего JS в head с defer -->
+    <script defer src="calculator.js"></script>
 </head>
 <body>
 
@@ -33,7 +35,7 @@
     <!-- Основной контейнер (Flex Box с изменением порядка на мобильных) -->
     <div class="content-wrapper" id="content">
         
-        <!-- Блок ссылок (первый в HTML, на мобильных уйдёт вниз благодаря order: 2) -->
+        <!-- Блок ссылок -->
         <aside class="sidebar-links" id="links">
             <h2>Островки покоя</h2>
             <p>Нажмите, если нужно перевести дух:</p>
@@ -44,13 +46,39 @@
             </ul>
         </aside>
 
-        <!-- Блок основного контента с картинкой и лавандовой таблицей (второй в HTML, на мобильных поднимется вверх) -->
+        <!-- Блок основного контента -->
         <main class="main-content">
             <h2>Твой план на сегодня</h2>
             
             <div class="hero-image-wrapper">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11Ytp5xHb3N5dQw0a6QAW4R1y25wo7WyUIbADJpIDiw&s=10" alt="Расслабляющая пастельная атмосфера" class="site-image">
             </div>
+
+            <!-- ВСТАВКА КАЛЬКУЛЯТОРА ПО ТЗ -->
+            <section class="calculator-section">
+                <h3>Калькулятор заказа ритуалов</h3>
+                <form id="order-form" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="product-select">Выбери товар/услугу:</label>
+                        <select id="product-select">
+                            <option value="500">Чайная церемония (500 руб.)</option>
+                            <option value="1200">Сессия медитации (1200 руб.)</option>
+                            <option value="2500">Аромамассаж (2500 руб.)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity-input">Количество:</label>
+                        <input type="text" id="quantity-input" placeholder="Например: 2">
+                    </div>
+
+                    <button type="button" id="calculate-btn">Подсчитать стоимость</button>
+                </form>
+
+                <!-- Блоки вывода информации -->
+                <div id="error-message" class="error-text"></div>
+                <div id="result-message" class="result-text"></div>
+            </section>
 
             <h3>Дневной трекер осознанности</h3>
             <div class="table-container">
@@ -78,7 +106,6 @@
                             <td>15 минут</td>
                             <td>Ощущение текущего момента</td>
                         </tr>
-                        <!-- НОВАЯ ОБЪЕДИНЕННАЯ ЯЧЕЙКА -->
                         <tr class="table-relax-row">
                             <td colspan="3">✨ Главное правило: никуда не спешите и позвольте себе просто побыть в моменте.</td>
                         </tr>
