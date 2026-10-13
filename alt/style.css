@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Шрифты и глобальные пастельные фоны для Bootstrap-версии
+   ========================================================================== */
+@import url('https://googleapis.com');
+
+body {
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+    background-color: #fffcee; /* Мягкий светло-пастельно-жёлтый фон */
+    color: #434b4d;
+}
+
+h1, h2, h3 {
+    color: #2c3e35;
+    font-weight: 600;
+}
+
+/* Верхняя плашка */
+.top-story-zone {
+    background: linear-gradient(135deg, #e3eed4 0%, #d2e7d6 100%);
+}
+
+/* Кнопки навигации */
+.nav-list a {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #2c3e35;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-list a:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #2c3e35;
+}
+
+/* Приветственная карточка */
+.intro-card-frame {
+    background-color: #f2f4f5;
+    border: 1px solid #e1e5e8;
+    border-radius: 16px;
+}
+
+/* Пастельно-голубой сайдбар */
+.sidebar-links {
+    background-color: #dcedf7;
+    border: 1px solid #cfe2ee;
+    border-radius: 16px;
+}
+
+.sidebar-links a {
+    color: #3b5266;
+    text-decoration: none;
+    border-bottom: 1px dashed #3b5266;
+}
+
+.sidebar-links a:hover {
+    color: #1d2d3a;
+}
+
+/* Пастельно-зеленый основной контент */
+.main-content {
+    background-color: #eaf4de;
+    border: 1px solid #dce8ce;
+    border-radius: 16px;
+}
+
+/* Стилизация лавандовой таблицы под Bootstrap */
+.chill-table th {
+    background-color: #e3dff2 !important;
+    color: #4a4458;
+}
+
+.chill-table tr:nth-child(even) {
+    background-color: #fbfaff;
+}
+
+/* Нижняя зона */
+.main-footer {
+    background-color: #ecebe4;
+    color: #707775;
+}
