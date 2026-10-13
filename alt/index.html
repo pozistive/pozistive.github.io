@@ -19,12 +19,12 @@
             <h1 class="display-5 fw-bold">Пространство Chill Out</h1>
         </header>
         <nav class="main-nav">
-            <!-- ИСПРАВЛЕНО: Добавлен align-items-center и w-100 для точного центрирования кнопок меню на мобильных -->
+            <!-- Центрированное меню на мобильных и ПК -->
             <ul class="nav-list list-unstyled d-flex flex-column flex-md-row justify-content-center align-items-center gap-2 gap-md-3 m-0 p-0 mx-auto" style="max-width: 400px; width: 100%;">
-                <li class="w-100"><a href="#home" class="d-block py-2 px-4 text-center">Главная</a></li>
-                <li class="w-100"><a href="#intro" class="d-block py-2 px-4 text-center">О нас</a></li>
-                <li class="w-100"><a href="#content" class="d-block py-2 px-4 text-center">Трекер</a></li>
-                <li class="w-100"><a href="#links" class="d-block py-2 px-4 text-center">Ресурсы</a></li>
+                <li class="w-100 text-center"><a href="#home" class="d-block py-2 px-4 text-center">Главная</a></li>
+                <li class="w-100 text-center"><a href="#intro" class="d-block py-2 px-4 text-center">О нас</a></li>
+                <li class="w-100 text-center"><a href="#content" class="d-block py-2 px-4 text-center">Трекер</a></li>
+                <li class="w-100 text-center"><a href="#links" class="d-block py-2 px-4 text-center">Ресурсы</a></li>
             </ul>
         </nav>
     </div>
@@ -33,20 +33,20 @@
     <div class="container mb-4">
         <section class="intro-card-frame p-4 p-md-5 text-center" id="intro">
             <h2>Добро пожаловать в наше пространство</h2>
-            <p class="lead mx-auto" style="max-width: 800px;">Мы создали это место, чтобы вы могли расслабиться и спокойно изучить всю необходимую информацию. Никакой суеты — только мягкие тона, чистый дизайн и удобная структура.</p>
+            <p class="lead mx-auto mb-0" style="max-width: 800px;">Мы создали это место, чтобы вы могли расслабиться и спокойно изучить всю необходимую информацию. Никакой суеты — только мягкие тона, чистый дизайн и удобная структура.</p>
         </section>
     </div>
 
-    <!-- Основной контент-контейнер со сменой порядка страниц -->
+    <!-- ОСНОВНОЙ КОНТЕЙНЕР СЕТКИ BOOTSTRAP -->
     <div class="container" id="content">
         <div class="row g-4">
             
-            <!-- Левая колонка: Ссылки -->
+            <!-- Левая колонка: Ссылки (На десктопе слева, на мобильных снизу благодаря order-2) -->
             <aside class="col-12 col-md-4 order-2 order-md-1">
                 <div class="sidebar-links p-4 h-100">
                     <h2>Островки покоя</h2>
-                    <p>Нажмите, если нужно перевести дух:</p>
-                    <ul class="list-unstyled mt-3">
+                    <p class="mb-3">Нажмите, если нужно перевести дух:</p>
+                    <ul class="list-unstyled m-0">
                         <li class="mb-2"><a href="https://rainymood.com" target="_blank" rel="noopener">Rainy Mood — Бесконечный дождь</a></li>
                         <li class="mb-2"><a href="https://pixelthoughts.co" target="_blank" rel="noopener">Pixel Thoughts — Медитация 60 сек</a></li>
                         <li class="mb-2"><a href="https://asoftmurmur.com" target="_blank" rel="noopener">A Soft Murmur — Звуки природы</a></li>
@@ -54,18 +54,19 @@
                 </div>
             </aside>
 
-            <!-- Правая колонка: Основной контент -->
+            <!-- Правая колонка: Основной контент (На десктопе справа, на мобильных сверху благодаря order-1) -->
             <main class="col-12 col-md-8 order-1 order-md-2">
-                <div class="main-content p-4">
+                <div class="main-content p-4 h-100">
                     <h2>Твой план на сегодня</h2>
                     
-                    <!-- Блок с адаптивной картинкой-логотипом -->
-                    <div class="mb-4 shadow-sm overflow-hidden bg-white" style="border-radius: 12px;">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11Ytp5xHb3N5dQw0a6QAW4R1y25wo7WyUIbADJpIDiw&s=10" alt="Расслабляющая пастельная атмосфера" class="img-fluid d-block mx-auto py-4">
+                    <!-- Блок с картинкой-логотипом -->
+                    <div class="mb-4 shadow-sm overflow-hidden bg-white text-center" style="border-radius: 12px; max-width: 450px;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11Ytp5xHb3N5dQw0a6QAW4R1y25wo7WyUIbADJpIDiw&s=10" alt="Расслабляющая пастельная атмосфера" class="img-fluid d-block mx-auto py-3">
                     </div>
 
-                    <h3>Дневной трекер осознанности</h3>
-                    <div class="table-responsive mt-3 rounded-3">
+                    <h3 class="mt-4">Дневной трекер осознанности</h3>
+                    <!-- Адаптивная обертка таблицы -->
+                    <div class="table-responsive mt-3 rounded-3 shadow-sm">
                         <table class="table chill-table m-0">
                             <thead>
                                 <tr>
@@ -79,7 +80,7 @@
                                     <td>Дыхание по квадрату 4-7-8</td>
                                     <td>5 минут</td>
                                     <td>Снижение тревоги и полный дзен</td>
-                                </tr>
+                                end</tr>
                                 <tr>
                                     <td>Прогулка без уведомлений</td>
                                     <td>20 минут</td>
@@ -90,9 +91,9 @@
                                     <td>15 минут</td>
                                     <td>Ощущение текущего момента</td>
                                 </tr>
-                                <!-- ИСПРАВЛЕНО: Новая объединенная строка таблицы -->
+                                <!-- Объединенная строка на всю ширину (3 колонки) -->
                                 <tr class="table-relax-row">
-                                    <td colspan="3" class="text-center text-muted fst-italic py-3">
+                                    <td colspan="3" class="text-center py-3">
                                         ✨ Главное правило: никуда не спешите и позвольте себе просто побыть в моменте.
                                     </td>
                                 </tr>
@@ -105,7 +106,7 @@
         </div>
     </div>
 
-    <!-- Футер -->
+    <!-- Футер страницы -->
     <footer class="main-footer text-center py-4 mt-5">
         <p class="m-0">Footer (Футер) &copy; 2026. Атмосфера тепла и полной гармонии.</p>
     </footer>
