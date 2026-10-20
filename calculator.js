@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ==========================================================================
 
     const ambientSelect = document.getElementById("ambient-select");
-    const phraseBtn = document.getElementById("chill-phrase-btn") || document.querySelector(".chill-phrase-btn");
+    const phraseBtn = document.querySelector(".chill-phrase-btn"); // Точный поиск по классу кнопки
     const phraseDisplay = document.getElementById("phrase-display");
 
     // Список всех доступных аудиоэлементов
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
         forest: document.getElementById("audio-forest")
     };
 
-    // Массив объектов (имитация JSON) с супер-чиловыми мыслями
+    // Массив объектов с супер-чиловыми мыслями
     const chillPhrases = [
         "Сделай глубокий вдох. Всё, что происходит сейчас — временное. Ты отлично справляешься. ✨",
         "Мир подождет 5 минут. Позволь себе роскошь просто сидеть, смотреть в экран и ни о чем не думать. ☕",
@@ -124,32 +124,40 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     // Функция управления плеером фоновых звуков
-    ambientSelect.addEventListener("change", function () {
-        const selectedValue = ambientSelect.value;
+    if (ambientSelect) {
+        ambientSelect.addEventListener("change", function () {
+            const selectedValue = ambientSelect.value;
 
-        // Останавливаем абсолютно все треки
-        Object.keys(tracks).forEach(function (key) {
-            if (tracks[key]) {
-                tracks[key].pause();
+            // Останавливаем абсолютно все треки
+            Object.keys(tracks).forEach(function (key) {
+                if (tracks[key]) {
+                    tracks[key].pause();
+                    tracks[key].currentTime = 0; // Сбрасываем в начало
+                }
+            });
+
+            // Включаем выбранный трек с комфортной громкостью
+            if (selectedValue !== "none" && tracks[selectedValue]) {
+                tracks[selectedValue].volume = 0.4; // 40% громкости
+                
+                // Запускаем звук
+                const playPromise = tracks[selectedValue].play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.catch(function (error) {
+                        console.log("Воспроизведение начнется сразу после любого клика по сайту: ", error);
+                    });
+                }
             }
         });
-
-        // Включаем выбранный трек с тихой комфортной громкостью
-        if (selectedValue !== "none" && tracks[selectedValue]) {
-            tracks[selectedValue].volume = 0.25; // 25% громкости, чтобы не пугать
-            tracks[selectedValue].play().catch(function () {
-                console.log("Браузер заблокировал автовоспроизведение до первого клика по странице.");
-            });
-        }
-    });
+    }
 
     // Функция генерации случайной фразы
-    phraseBtn.addEventListener("click", function () {
-        // Выбираем случайный индекс из массива
-        const randomIndex = Math.floor(Math.random() * chillPhrases.length);
-        
-        // Выводим текст и плавно показываем блок
-        phraseDisplay.textContent = chillPhrases[randomIndex];
-        phraseDisplay.style.display = "block";
-    });
+    if (phraseBtn) {
+        phraseBtn.addEventListener("click", function () {
+            const randomIndex = Math.floor(Math.random() * chillPhrases.length);
+            phraseDisplay.textContent = chillPhrases[randomIndex];
+            phraseDisplay.style.display = "block";
+        });
+    }
 });
