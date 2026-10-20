@@ -87,14 +87,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // ==========================================================================
     const ambientSelect = document.getElementById("ambient-select");
     const phraseDisplay = document.getElementById("phrase-display");
-    
-    // Ищем кнопку по её классу, как в самом первом рабочем коде
     const phraseBtn = document.querySelector(".chill-phrase-btn");
 
+    // Обновленный список треков под твои точные id из HTML
     const tracks = {
         rain: document.getElementById("audio-rain"),
-        fire: document.getElementById("audio-fire"),
-        forest: document.getElementById("audio-forest")
+        campfire: document.getElementById("audio-campfire"),
+        lake: document.getElementById("audio-lake"),
+        ocean: document.getElementById("audio-ocean")
     };
 
     const chillPhrases = [
@@ -107,11 +107,11 @@ document.addEventListener("DOMContentLoaded", function () {
         "Чашка теплого чая (даже виртуального) способна согреть изнутри. Позволь мыслям течь плавно. 🍂"
     ];
 
-    // Управление звуками
     if (ambientSelect) {
         ambientSelect.addEventListener("change", function () {
             const selectedValue = ambientSelect.value;
 
+            // Выключаем всё играющее
             Object.keys(tracks).forEach(function (key) {
                 if (tracks[key]) {
                     tracks[key].pause();
@@ -119,16 +119,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
 
+            // Включаем выбранный локальный трек
             if (selectedValue !== "none" && tracks[selectedValue]) {
                 tracks[selectedValue].volume = 0.5; 
                 tracks[selectedValue].play().catch(function (error) {
-                    console.log("Ждем клика для музыки: ", error);
+                    console.log("Ожидание активности на странице: ", error);
                 });
             }
         });
     }
 
-    // Тот самый первый рабочий клик кнопки дзена
     if (phraseBtn) {
         phraseBtn.addEventListener("click", function () {
             const randomIndex = Math.floor(Math.random() * chillPhrases.length);
