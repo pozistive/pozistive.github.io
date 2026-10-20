@@ -97,4 +97,59 @@ document.addEventListener("DOMContentLoaded", function () {
     // Стартовая инициализация при загрузке
     updateVisibility();
     calculateTotal();
+    // ==========================================================================
+    // ЛОГИКА ДЛЯ МИЛОГО ЧИЛЛ-ЦЕНТРА В СИНЕМ БЛОКЕ
+    // ==========================================================================
+
+    const ambientSelect = document.getElementById("ambient-select");
+    const phraseBtn = document.getElementById("chill-phrase-btn") || document.querySelector(".chill-phrase-btn");
+    const phraseDisplay = document.getElementById("phrase-display");
+
+    // Список всех доступных аудиоэлементов
+    const tracks = {
+        rain: document.getElementById("audio-rain"),
+        fire: document.getElementById("audio-fire"),
+        forest: document.getElementById("audio-forest")
+    };
+
+    // Массив объектов (имитация JSON) с супер-чиловыми мыслями
+    const chillPhrases = [
+        "Сделай глубокий вдох. Всё, что происходит сейчас — временное. Ты отлично справляешься. ✨",
+        "Мир подождет 5 минут. Позволь себе роскошь просто сидеть, смотреть в экран и ни о чем не думать. ☕",
+        "Твоя ценность не измеряется продуктивностью. Быть уставшим — это нормально. Отдыхай без чувства вины. ☁️",
+        "Прямо сейчас расслабь плечи, разомкни зубы и убери язык от неба. Вот так, лучше. 🌿",
+        "Вселенная шепчет: ты находишься именно там, где должен быть. Не торопись жить эту жизнь. 🌍",
+        "Здесь нет дедлайнов. Здесь нет оценок. Только ты, мягкий свет монитора и полный покой. 🧘‍♂️",
+        "Чашка теплого чая (даже виртуального) способна согреть изнутри. Позволь мыслям течь плавно. 🍂"
+    ];
+
+    // Функция управления плеером фоновых звуков
+    ambientSelect.addEventListener("change", function () {
+        const selectedValue = ambientSelect.value;
+
+        // Останавливаем абсолютно все треки
+        Object.keys(tracks).forEach(function (key) {
+            if (tracks[key]) {
+                tracks[key].pause();
+            }
+        });
+
+        // Включаем выбранный трек с тихой комфортной громкостью
+        if (selectedValue !== "none" && tracks[selectedValue]) {
+            tracks[selectedValue].volume = 0.25; // 25% громкости, чтобы не пугать
+            tracks[selectedValue].play().catch(function () {
+                console.log("Браузер заблокировал автовоспроизведение до первого клика по странице.");
+            });
+        }
+    });
+
+    // Функция генерации случайной фразы
+    phraseBtn.addEventListener("click", function () {
+        // Выбираем случайный индекс из массива
+        const randomIndex = Math.floor(Math.random() * chillPhrases.length);
+        
+        // Выводим текст и плавно показываем блок
+        phraseDisplay.textContent = chillPhrases[randomIndex];
+        phraseDisplay.style.display = "block";
+    });
 });
