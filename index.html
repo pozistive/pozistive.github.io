@@ -35,36 +35,33 @@
     <!-- Основной контейнер (Flex Box с изменением порядка на мобильных) -->
     <div class="content-wrapper" id="content">
         
-        <!-- Блок ссылок -->
         <!-- Блок ресурсов, превращенный в Чилл-Центр -->
         <aside class="sidebar-links" id="links">
             <h2>Островки покоя</h2>
             <p>Настрой атмосферу вокруг себя:</p>
             
             <form id="ambient-form" onsubmit="return false;" style="margin-top: 15px;">
-                <!-- Выпадающий список звуков (как в первом калькуляторе) -->
                 <div class="form-group">
                     <label for="ambient-select">Включить фоновый шум:</label>
                     <select id="ambient-select">
                         <option value="none">Тишина вокруг... (Выкл)</option>
                         <option value="rain">Бесконечный мягкий дождь 🌧️</option>
-                        <option value="fire">Уютный треск костра 🔥</option>
-                        <option value="forest">Шум ветра и птицы в лесу 🌲</option>
+                        <option value="campfire">Уютный треск костра 🔥</option>
+                        <option value="lake">Мягкие озерные волны 🌊</option>
+                        <option value="ocean">Глубокий шум океана 🐋</option>
                     </select>
                 </div>
 
-                <!-- Полностью открытые звуки из архива Wikimedia Commons (разрешен хотлинк) -->
-                <audio id="audio-rain" loop src="https://wikimedia.org"></audio>
-                <audio id="audio-fire" loop src="https://wikimedia.org"></audio>
-                <audio id="audio-forest" loop src="https://wikimedia.org"></audio>
-
+                <!-- Абсолютно точные пути к твоим аудиофайлам из папки sounds -->
+                <audio id="audio-rain" loop src="sounds/rain-01.mp3"></audio>
+                <audio id="audio-campfire" loop src="sounds/campfire-1.mp3"></audio>
+                <audio id="audio-lake" loop src="sounds/lake-waves-01.mp3"></audio>
+                <audio id="audio-ocean" loop src="sounds/ocean-wave-1.mp3"></audio>
 
                 <p style="margin: 20px 0 5px 0;">Послание от Вселенной:</p>
-                <!-- Красивая кнопка генератора мыслей -->
                 <button type="button" class="chill-phrase-btn">Поймать волну дзена ✨</button>
             </form>
 
-            <!-- Блок для вывода случайного чиллового текста -->
             <div id="phrase-display" class="result-text phrase-box" style="display: none;"></div>
         </aside>
         <!-- Блок основного контента -->
