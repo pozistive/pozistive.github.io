@@ -219,29 +219,24 @@ h1, h2, h3 {
     margin-top: 10px;
     color: #2e7d32;
 }
-/* ==========================================================================
-   5. Отдельная Оранжевая Карточка Калькулятора по логике сайта
-   ========================================================================== */
-.orange-chill-card {
-    background: linear-gradient(135deg, #fcead2 0%, #f7dbb6 100%) !important; /* Наш уютный оранжевый фон */
+.calculator-section.orange-chill-card {
+    background: linear-gradient(135deg, #fcead2 0%, #f7dbb6 100%) !important; /* Уютный оранжевый фон */
+    background-color: #f7dbb6 !important; /* Перебиваем старый белый фон */
     border: 1px solid #ebd0ad !important; /* Нежная рамка */
     border-radius: 16px !important; /* Фирменные круглые края */
     padding: 30px 25px !important;
-    margin: 15px !important; /* Отступы по бокам на мобильных */
+    margin: 15px !important; /* Отступы по бокам на мобильных устройствах */
     box-shadow: none !important;
 }
-
-/* Адаптив для Планшетов и ПК: выравнивание по максимальной ширине сайта */
-
-
 /* ==========================================================================
    3. Адаптив для Планшетов и Десктопов (Media Query)
    ========================================================================== */
 @media (min-width: 768px) {
-    .orange-chill-card {
-        max-width: 650px; /* Карточка аккуратно огибает контент и не растягивается */
-        margin: 30px auto !important; /* Магия центрирования на больших экранах */
+    .calculator-section.orange-chill-card {
+        max-width: 500px !important; /* Идеальный компактный размер */
+        margin: 40px auto !important; /* Выравнивание ровно по центру экрана */
     }
+   
     .nav-list {
         flex-direction: row;
         justify-content: center;
