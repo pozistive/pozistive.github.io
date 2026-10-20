@@ -219,22 +219,28 @@ h1, h2, h3 {
     margin-top: 10px;
     color: #2e7d32;
 }
-.calculator-section.orange-chill-card {
-    background: linear-gradient(135deg, #fcead2 0%, #f7dbb6 100%) !important; /* Уютный оранжевый фон */
-    background-color: #f7dbb6 !important; /* Перебиваем старый белый фон */
+
+#order-form, 
+#order-form-container, 
+section.calculator-section, 
+.calculator-section {
+    background: linear-gradient(135deg, #fcead2 0%, #f7dbb6 100%) !important; /* Наш уютный оранжевый фон */
+    background-color: #f7dbb6 !important; /* Тотальное стирание белого фона */
     border: 1px solid #ebd0ad !important; /* Нежная рамка */
     border-radius: 16px !important; /* Фирменные круглые края */
     padding: 30px 25px !important;
-    margin: 15px !important; /* Отступы по бокам на мобильных устройствах */
     box-shadow: none !important;
 }
+
 /* ==========================================================================
    3. Адаптив для Планшетов и Десктопов (Media Query)
    ========================================================================== */
 @media (min-width: 768px) {
-    .calculator-section.orange-chill-card {
-        max-width: 500px !important; /* Идеальный компактный размер */
-        margin: 40px auto !important; /* Выравнивание ровно по центру экрана */
+    section.calculator-section, 
+    .calculator-section {
+        max-width: 500px !important; /* Сужаем строго до 500px */
+        margin: 40px auto !important; /* Ставим идеально по центру страницы */
+        display: block !important;
     }
    
     .nav-list {
