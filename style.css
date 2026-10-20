@@ -219,6 +219,21 @@ h1, h2, h3 {
     margin-top: 10px;
     color: #2e7d32;
 }
+/* Новая внешняя оранжевая зона для калькулятора */
+.calculator-orange-zone {
+    background: linear-gradient(135deg, #fcead2 0%, #f7dbb6 100%); /* Уютный пастельно-оранжевый градиент */
+    padding: 40px 20px;
+    margin-top: 20px;
+}
+
+/* Ограничиваем максимальную ширину карточки калькулятора для красивого вида на ПК */
+.calculator-orange-zone .calculator-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff; /* Сама карточка формы останется чистой белой */
+    border: 1px solid #ebd0ad;
+}
+
 
 /* ==========================================================================
    3. Адаптив для Планшетов и Десктопов (Media Query)
