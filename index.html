@@ -53,56 +53,6 @@
             <div class="hero-image-wrapper">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11Ytp5xHb3N5dQw0a6QAW4R1y25wo7WyUIbADJpIDiw&s=10" alt="Расслабляющая пастельная атмосфера" class="site-image">
             </div>
-
-            <!-- ВСТАВКА КАЛЬКУЛЯТОРА ПО ТЗ (ЗАДАНИЕ 6) -->
-            <section class="calculator-section">
-                <h3>Калькулятор ментальных покупок</h3>
-                <form id="order-form" onsubmit="return false;">
-                    
-                    <!-- Поле количества -->
-                    <div class="form-group">
-                        <label for="quantity-input">Сколько тебе нужно для счастья?</label>
-                        <input type="text" id="quantity-input" value="1" placeholder="Например: 5">
-                    </div>
-            
-                    <!-- Выбор типа товара (Радиокнопки) -->
-                    <div class="form-group">
-                        <label>Выбери тип подпитки:</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="product-type" value="type1" id="type1" checked> Тип 1: Базовый дзен (100 руб.)</label>
-                            <label><input type="radio" name="product-type" value="type2" id="type2"> Тип 2: Чайная церемония (200 руб.)</label>
-                            <label><input type="radio" name="product-type" value="type3" id="type3"> Тип 3: Погружение в тишину (300 руб.)</label>
-                        </div>
-                    </div>
-
-                    <!-- Динамическая опция (Селект для Типа 2) -->
-                    <div class="form-group" id="options-container" style="display: none;">
-                        <label for="product-options">Выбери сорт чая:</label>
-                        <select id="product-options">
-                            <option value="0">Обычный травяной (+0 руб.)</option>
-                            <option value="50">Матча высшего сорта (+50 руб.)</option>
-                            <option value="100">Редкий пуэр (+100 руб.)</option>
-                        </select>
-                    </div>
-            
-                    <!-- Динамическое свойство (Чекбокс для Типа 3) -->
-                    <div class="form-group" id="properties-container" style="display: none;">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="product-properties" value="150">
-                            Добавить звуковое сопровождение (+150 руб.)
-                        </label>
-                    </div>
-
-                    <!-- Кнопка расчета из вашего CSS -->
-                    <button type="button" id="calculate-btn">Рассчитать стоимость дзена</button>
-                </form>
-            
-                <!-- Блоки вывода информации (аккуратно стилизованы в CSS) -->
-                <div id="error-message" class="error-text"></div>
-                <div id="result-message" class="result-text"></div>
-            </section>
-
-
             <h3>Дневной трекер осознанности</h3>
             <div class="table-container">
                 <table class="chill-table">
