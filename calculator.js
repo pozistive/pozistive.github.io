@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 2. КОНСТАНТЫ И НАСТРОЙКИ ЧИЛЛ-ЦЕНТРА (СИНИЙ БЛОК)
     // ==========================================================================
     const ambientSelect = document.getElementById("ambient-select");
-    const phraseBtn = document.querySelector(".chill-phrase-btn");
+    const phraseBtn = document.getElementById("phrase-btn");
     const phraseDisplay = document.getElementById("phrase-display");
 
     const tracks = {
