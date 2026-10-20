@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "use strict";
 
     // ==========================================================================
-    // 1. КОНСТАНТЫ И НАСТРОЙКИ КАЛЬКУЛЯТОРА (ЗАДАНИЕ 6)
+    // 1. КАЛЬКУЛЯТОР СТОИМОСТИ (ЗАДАНИЕ 6)
     // ==========================================================================
     const prices = {
         type1: 100,
@@ -20,37 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const calculateBtn = document.getElementById("calculate-btn");
     const orderForm = document.getElementById("order-form");
 
-    // ==========================================================================
-    // 2. КОНСТАНТЫ И НАСТРОЙКИ ЧИЛЛ-ЦЕНТРА (СИНИЙ БЛОК)
-    // ==========================================================================
-    const ambientSelect = document.getElementById("ambient-select");
-    const phraseBtn = document.getElementById("phrase-btn");
-    const phraseDisplay = document.getElementById("phrase-display");
-
-    const tracks = {
-        rain: document.getElementById("audio-rain"),
-        fire: document.getElementById("audio-fire"),
-        forest: document.getElementById("audio-forest")
-    };
-
-    const chillPhrases = [
-        "Сделай глубокий вдох. Всё, что происходит сейчас — временное. Ты отлично справляешься. ✨",
-        "Мир подождет 5 минут. Позволь себе роскошь просто сидеть, смотреть в экран и ни о чем не думать. ☕",
-        "Твоя ценность не измеряется продуктивностью. Быть уставшим — это нормально. Отдыхай без чувства вины. ☁️",
-        "Прямо сейчас расслабь плечи, разомкни зубы и убери язык от неба. Вот так, лучше. 🌿",
-        "Вселенная шепчет: ты находишься именно там, где должен быть. Не торопись жить эту жизнь. 🌍",
-        "Здесь нет дедлайнов. Здесь нет оценок. Только ты, мягкий свет монитора и полный покой. 🧘‍♂️",
-        "Чашка теплого чая (даже виртуального) способна согреть изнутри. Позволь мыслям течь плавно. 🍂"
-    ];
-
-    // ==========================================================================
-    // 3. ФУНКЦИИ ЛОГИКИ КАЛЬКУЛЯТОРА
-    // ==========================================================================
     function updateVisibility() {
         const selectedRadio = orderForm.querySelector("input[name='product-type']:checked");
-        if (!selectedRadio) {
-            return;
-        }
+        if (!selectedRadio) { return; }
 
         if (selectedRadio.value === "type1") {
             optionsContainer.style.display = "none";
@@ -78,9 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const selectedRadio = orderForm.querySelector("input[name='product-type']:checked");
-        if (!selectedRadio) {
-            return;
-        }
+        if (!selectedRadio) { return; }
         
         const currentType = selectedRadio.value;
         let basePrice = prices[currentType];
@@ -97,37 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resultMessage.textContent = "Стоимость дзена: " + String(finalPrice) + " руб.";
     }
 
-    // ==========================================================================
-    // 4. ФУНКЦИИ ЛОГИКИ АУДИО И ГЕНЕРАТОРА МЫСЛЕЙ
-    // ==========================================================================
-    function handleAmbientChange() {
-        const selectedValue = ambientSelect.value;
-
-        Object.keys(tracks).forEach(function (key) {
-            if (tracks[key]) {
-                tracks[key].pause();
-                tracks[key].currentTime = 0; 
-            }
-        });
-
-        if (selectedValue !== "none" && tracks[selectedValue]) {
-            tracks[selectedValue].volume = 0.5; 
-            
-            tracks[selectedValue].play().catch(function (error) {
-                console.error("Ошибка воспроизведения аудио: ", error);
-            });
-        }
-    }
-
-    function handlePhraseClick() {
-        const randomIndex = Math.floor(Math.random() * chillPhrases.length);
-        phraseDisplay.textContent = chillPhrases[randomIndex];
-        phraseDisplay.style.display = "block";
-    }
-
-    // ==========================================================================
-    // 5. НАВЕШИВАНИЕ ОБРАБОТЧИКОВ СОБЫТИЙ И ИНИЦИАЛИЗАЦИЯ
-    // ==========================================================================
+    // Навешиваем события на форму калькулятора
     if (orderForm) {
         orderForm.querySelectorAll("input[name='product-type']").forEach(function (radio) {
             radio.addEventListener("change", function () {
@@ -136,28 +76,68 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+    if (productOptions) { productOptions.addEventListener("change", calculateTotal); }
+    if (productProperties) { productProperties.addEventListener("change", calculateTotal); }
+    if (quantityInput) { quantityInput.addEventListener("input", calculateTotal); }
+    if (calculateBtn) { calculateBtn.addEventListener("click", calculateTotal); }
 
-    if (productOptions) {
-        productOptions.addEventListener("change", calculateTotal);
-    }
-    if (productProperties) {
-        productProperties.addEventListener("change", calculateTotal);
-    }
-    if (quantityInput) {
-        quantityInput.addEventListener("input", calculateTotal);
-    }
-    if (calculateBtn) {
-        calculateBtn.addEventListener("click", calculateTotal);
-    }
 
+    // ==========================================================================
+    // 2. ИНТЕРАКТИВНЫЙ ЧИЛЛ-ЦЕНТР (СИНИЙ БЛОК)
+    // ==========================================================================
+    const ambientSelect = document.getElementById("ambient-select");
+    const phraseDisplay = document.getElementById("phrase-display");
+    
+    // Ищем кнопку по её классу, как в самом первом рабочем коде
+    const phraseBtn = document.querySelector(".chill-phrase-btn");
+
+    const tracks = {
+        rain: document.getElementById("audio-rain"),
+        fire: document.getElementById("audio-fire"),
+        forest: document.getElementById("audio-forest")
+    };
+
+    const chillPhrases = [
+        "Сделай глубокий вдох. Всё, что происходит сейчас — временное. Ты отлично справляешься. ✨",
+        "Мир подождет 5 минут. Позволь себе роскошь просто сидеть, смотреть в экран и ни о чем не думать. ☕",
+        "Твоя ценность не измеряется продуктивностью. Быть уставшим — это нормально. Отдыхай без чувства вины. ☁️",
+        "Прямо сейчас расслабь плечи, разомкни зубы и убери язык от неба. Вот так, лучше. 🌿",
+        "Вселенная шепчет: ты находишься именно там, где должен быть. Не торопись жить эту жизнь. 🌍",
+        "Здесь нет дедлайнов. Здесь нет оценок. Только ты, мягкий свет монитора и полный покой. 🧘‍♂️",
+        "Чашка теплого чая (даже виртуального) способна согреть изнутри. Позволь мыслям течь плавно. 🍂"
+    ];
+
+    // Управление звуками
     if (ambientSelect) {
-        ambientSelect.addEventListener("change", handleAmbientChange);
-    }
-    if (phraseBtn) {
-        phraseBtn.addEventListener("click", handlePhraseClick);
+        ambientSelect.addEventListener("change", function () {
+            const selectedValue = ambientSelect.value;
+
+            Object.keys(tracks).forEach(function (key) {
+                if (tracks[key]) {
+                    tracks[key].pause();
+                    tracks[key].currentTime = 0; 
+                }
+            });
+
+            if (selectedValue !== "none" && tracks[selectedValue]) {
+                tracks[selectedValue].volume = 0.5; 
+                tracks[selectedValue].play().catch(function (error) {
+                    console.log("Ждем клика для музыки: ", error);
+                });
+            }
+        });
     }
 
-    // Первичный запуск функций при загрузке страницы
+    // Тот самый первый рабочий клик кнопки дзена
+    if (phraseBtn) {
+        phraseBtn.addEventListener("click", function () {
+            const randomIndex = Math.floor(Math.random() * chillPhrases.length);
+            phraseDisplay.textContent = chillPhrases[randomIndex];
+            phraseDisplay.style.display = "block";
+        });
+    }
+
+    // Старт при загрузке
     updateVisibility();
     calculateTotal();
 });
