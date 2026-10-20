@@ -36,16 +36,36 @@
     <div class="content-wrapper" id="content">
         
         <!-- Блок ссылок -->
+        <!-- Блок ресурсов, превращенный в Чилл-Центр -->
         <aside class="sidebar-links" id="links">
             <h2>Островки покоя</h2>
-            <p>Нажмите, если нужно перевести дух:</p>
-            <ul>
-                <li><a href="https://rainymood.com" target="_blank" rel="noopener">Rainy Mood — Бесконечный дождь</a></li>
-                <li><a href="https://pixelthoughts.co" target="_blank" rel="noopener">Pixel Thoughts — Медитация 60 сек</a></li>
-                <li><a href="https://asoftmurmur.com" target="_blank" rel="noopener">A Soft Murmur — Звуки природы</a></li>
-            </ul>
-        </aside>
+            <p>Настрой атмосферу вокруг себя:</p>
+            
+            <form id="ambient-form" onsubmit="return false;" style="margin-top: 15px;">
+                <!-- Выпадающий список звуков (как в первом калькуляторе) -->
+                <div class="form-group">
+                    <label for="ambient-select">Включить фоновый шум:</label>
+                    <select id="ambient-select">
+                        <option value="none">Тишина вокруг... (Выкл)</option>
+                        <option value="rain">Бесконечный мягкий дождь 🌧️</option>
+                        <option value="fire">Уютный треск костра 🔥</option>
+                        <option value="forest">Шум ветра и птицы в лесу 🌲</option>
+                    </select>
+                </div>
 
+                <!-- Невидимые аудио-элементы (используем бесплатные чилловые звуки без авторских прав) -->
+                <audio id="audio-rain" loop src="https://mixkit.co"></audio>
+                <audio id="audio-fire" loop src="https://mixkit.co"></audio>
+                <audio id="audio-forest" loop src="https://mixkit.co"></audio>
+
+                <p style="margin: 20px 0 5px 0;">Послание от Вселенной:</p>
+                <!-- Красивая кнопка генератора мыслей -->
+                <button type="button" id="calculate-btn" class="chill-phrase-btn">Поймать волну дзена ✨</button>
+            </form>
+
+            <!-- Блок для вывода случайного чиллового текста -->
+            <div id="phrase-display" class="result-text phrase-box" style="display: none;"></div>
+        </aside>
         <!-- Блок основного контента -->
         <main class="main-content">
             <h2>Твой план на сегодня</h2>
