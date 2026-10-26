@@ -10,15 +10,15 @@
     <link rel="stylesheet" type="text/css" href="https://cloudflare.com">
     <link rel="stylesheet" href="style.css">
 
-    <!-- 2. Надежное подключение jQuery от Google -->
+    <!-- 2. Сначала строго загружается базовая библиотека jQuery -->
     <script src="https://googleapis.com"></script>
     
-    <!-- 3. Плагин Slick Slider -->
+    <!-- 3. Затем строго загружается плагин слайдера -->
     <script src="https://cloudflare.com"></script>
     
-    <!-- 4. Твои скрипты инициализации (выполняются строго ПОСЛЕ загрузки библиотек) -->
-    <script defer src="slider-init.js"></script>
-    <script defer src="calculator.js"></script>
+    <!-- 4. И только в самом конце подключаются наши файлы логики (уже без defer) -->
+    <script src="slider-init.js"></script>
+    <script src="calculator.js"></script>
 </head>
 <body>
 
