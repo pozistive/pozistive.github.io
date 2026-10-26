@@ -1,19 +1,18 @@
-/*global $ */
-$(document).ready(function () {
+jQuery(document).ready(function ($) {
     "use strict";
 
     $(".chill-slider").slick({
-        dots: true,             // Отображать точки-пейджер
-        infinite: true,         // Бесконечная прокрутка
-        slidesToShow: 3,        // 3 картинки на ПК
-        slidesToScroll: 1,      // Листать по 1 картинке
+        dots: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
         prevArrow: '<button type="button" class="slick-prev">←</button>',
         nextArrow: '<button type="button" class="slick-next">→</button>',
         responsive: [
             {
-                breakpoint: 768, // На смартфонах
+                breakpoint: 768,
                 settings: {
-                    slidesToShow: 1, // 1 картинка на смартфоне
+                    slidesToShow: 1,
                     slidesToScroll: 1
                 }
             }
