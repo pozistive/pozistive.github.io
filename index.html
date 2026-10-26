@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Твой Уютный Уголок Спокойствия</title>
+    
+    <!-- Подключение стилей Slick Slider для галереи (Задание 7) -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cloudflare.com">
+    
     <link rel="stylesheet" href="style.css">
     <!-- Выполнение ТЗ: подключение внешнего JS в head с defer -->
     <script defer src="calculator.js"></script>
@@ -64,6 +69,7 @@
 
             <div id="phrase-display" class="result-text phrase-box" style="display: none;"></div>
         </aside>
+        
         <!-- Блок основного контента -->
         <main class="main-content">
             <h2>Твой план на сегодня</h2>
@@ -71,6 +77,22 @@
             <div class="hero-image-wrapper">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11Ytp5xHb3N5dQw0a6QAW4R1y25wo7WyUIbADJpIDiw&s=10" alt="Расслабляющая пастельная атмосфера" class="site-image">
             </div>
+
+            <!-- ВЫПОЛНЕНИЕ ЗАДАНИЯ 7: Адаптивная галерея из 8 изображений -->
+            <section class="gallery-section">
+                <h3>Уютная галерея моментов</h3>
+                <div class="chill-slider">
+                    <div><img src="pictures/foto1.png" alt="Атмосфера 1"></div>
+                    <div><img src="pictures/foto2.png" alt="Атмосфера 2"></div>
+                    <div><img src="pictures/foto3.png" alt="Атмосфера 3"></div>
+                    <div><img src="pictures/foto4.png" alt="Атмосфера 4"></div>
+                    <div><img src="pictures/foto5.png" alt="Атмосфера 5"></div>
+                    <div><img src="pictures/foto6.png" alt="Атмосфера 6"></div>
+                    <div><img src="pictures/foto7.png" alt="Атмосфера 7"></div>
+                    <div><img src="pictures/foto8.png" alt="Атмосфера 8"></div>
+                </div>
+            </section>
+
             <h3>Дневной трекер осознанности</h3>
             <div class="table-container">
                 <table class="chill-table">
@@ -102,10 +124,9 @@
                         </tr>
                     </tbody>
                 </table>
-                    </main>
-    </div> <!-- Конец .content-wrapper (синий блок + зеленый блок с таблицей) -->
-
-        </div> <!-- Конец .content-wrapper -->
+            </div>
+        </main>
+    </div> <!-- Конец .content-wrapper -->
 
     <!-- КАЛЬКУЛЯТОР КАК ОТДЕЛЬНАЯ САМОДОСТАТОЧНАЯ КАРТОЧКА -->
     <section class="calculator-section orange-chill-card">
@@ -152,6 +173,12 @@
     <footer class="main-footer">
         <p>Footer (Футер) &copy; 2026. Атмосфера тепла и полной гармонии.</p>
     </footer>
+
+    <!-- Скрипты для работы слайдера (Задание 7) -->
+    <!-- Сначала подключаем jQuery, затем сам плагин Slick Slider, а в конце — наш файл инициализации -->
+    <script src="https://jquery.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="slider-init.js"></script>
 
 </body>
 </html>
