@@ -10,13 +10,13 @@
     <link rel="stylesheet" type="text/css" href="https://cloudflare.com">
     <link rel="stylesheet" href="style.css">
 
-    <!-- 2. Сначала строго загружается базовая библиотека jQuery -->
-    <script src="https://googleapis.com"></script>
+    <!-- 2. Безотказный CDN для jQuery напрямую от разработчиков -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
-    <!-- 3. Затем строго загружается плагин слайдера -->
+    <!-- 3. Плагин слайдера -->
     <script src="https://cloudflare.com"></script>
     
-    <!-- 4. И только в самом конце подключаются наши файлы логики (уже без defer) -->
+    <!-- 4. Файлы твоей логики -->
     <script src="slider-init.js"></script>
     <script src="calculator.js"></script>
 </head>
