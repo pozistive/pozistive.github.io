@@ -438,3 +438,18 @@ section.calculator-section {
         height: 220px; /* На больших экранах картинки чуть выше */
     }
 }
+
+/* Страховка от вертикального разваливания слайдера до загрузки JS */
+.chill-slider:not(.slick-initialized) {
+    display: flex;
+    overflow: hidden;
+    gap: 10px;
+}
+.chill-slider:not(.slick-initialized) div {
+    min-width: 33.333%;
+}
+@media (max-width: 767px) {
+    .chill-slider:not(.slick-initialized) div {
+        min-width: 100%;
+    }
+}
