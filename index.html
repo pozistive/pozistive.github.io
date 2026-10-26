@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Твой Уютный Уголок Спокойствия</title>
     
-    <!-- Подключение стилей Slick Slider для галереи (Задание 7) -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <!-- 1. Стили Slick Slider -->
     <link rel="stylesheet" type="text/css" href="https://cloudflare.com">
-    
+    <link rel="stylesheet" type="text/css" href="https://cloudflare.com">
     <link rel="stylesheet" href="style.css">
-    <!-- Выполнение ТЗ: подключение внешнего JS в head с defer -->
+
+    <!-- 2. Надежное подключение jQuery от Google -->
+    <script src="https://googleapis.com"></script>
+    
+    <!-- 3. Плагин Slick Slider -->
+    <script src="https://cloudflare.com"></script>
+    
+    <!-- 4. Твои скрипты инициализации (выполняются строго ПОСЛЕ загрузки библиотек) -->
+    <script defer src="slider-init.js"></script>
     <script defer src="calculator.js"></script>
 </head>
 <body>
@@ -173,12 +180,6 @@
     <footer class="main-footer">
         <p>Footer (Футер) &copy; 2026. Атмосфера тепла и полной гармонии.</p>
     </footer>
-
-    <!-- Скрипты для работы слайдера (Задание 7) -->
-    <!-- Сначала подключаем jQuery, затем сам плагин Slick Slider, а в конце — наш файл инициализации -->
-    <script defer src="https://jquery.com"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script defer src="slider-init.js"></script>
 
 </body>
 </html>
