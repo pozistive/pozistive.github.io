@@ -36,13 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("user-agree").checked = (savedAgree === "true");
     }
 
-    // Слушаем изменения в полях для автосохранения
     form.addEventListener("input", saveToLocalStorage);
 
     // --- 2. Логика Попапа и History API ---
     function openPopup() {
         popup.style.display = "flex";
-        document.body.style.overflow = "hidden"; // Запрещаем прокрутку фона
+        document.body.style.overflow = "hidden";
         if (window.location.hash !== hashName) {
             window.history.pushState({popup: "open"}, "", hashName);
         }
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function closePopup() {
         popup.style.display = "none";
-        document.body.style.overflow = "auto"; // Возвращаем прокрутку фона
+        document.body.style.overflow = "auto";
         if (window.location.hash === hashName) {
             window.history.replaceState(null, "", window.location.pathname);
         }
@@ -59,14 +58,12 @@ document.addEventListener("DOMContentLoaded", function () {
     openBtn.addEventListener("click", openPopup);
     closeBtn.addEventListener("click", closePopup);
 
-    // Закрытие по клику на оверлей вокруг формы
     popup.addEventListener("click", function (e) {
         if (e.target === popup) {
             closePopup();
         }
     });
 
-    // Обработка кнопки "Назад" в браузере
     window.addEventListener("popstate", function () {
         if (window.location.hash !== hashName) {
             popup.style.display = "none";
@@ -77,15 +74,57 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Проверка хэша при прямой загрузке страницы
     if (window.location.hash === hashName) {
         openPopup();
     }
 
-    // --- 3. AJAX отправка через fetch ---
+    // --- 3. ЖЕСТКАЯ ВАЛИДАЦИЯ И AJAX ОТПРАВКА ---
     form.addEventListener("submit", function (e) {
         e.preventDefault();
+        
+        // Сбрасываем стили сообщения
         resultMsg.className = "popup-result-text";
+        resultMsg.style.display = "none";
+
+        // Получаем значения полей и очищаем от лишних пробелов по краям
+        var fio = document.getElementById("user-fio").value.trim(),
+            email = document.getElementById("user-email").value.trim(),
+            phone = document.getElementById("user-phone").value.trim();
+
+        // 1. Регулярное выражение для ФИО (минимум 2 слова, только буквы и пробелы)
+        var fioRegex = /^[a-zA-Zа-яА-ЯёЁ\s]{2,}\s+[a-zA-Zа-яА-ЯёЁ\s]{2,}/;
+        
+        // 2. Регулярное выражение для Email (строгая проверка домена второго и верхнего уровня)
+        var emailRegex = /^[a-zA-Z0-0._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        
+        // 3. Регулярное выражение для Телефона (разрешает +, цифры, скобки и дефисы, минимум 10 цифр)
+        var phoneRegex = /^(\+?\d{1,3})?[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{2}[-.\s]?\d{2}$/;
+
+        // Проверка ФИО
+        if (!fioRegex.test(fio)) {
+            resultMsg.textContent = "Пожалуйста, введите корректное ФИО (минимум Фамилия и Имя без цифр).";
+            resultMsg.classList.add("error-text");
+            resultMsg.style.display = "block";
+            return false;
+        }
+
+        // Проверка Email
+        if (!emailRegex.test(email)) {
+            resultMsg.textContent = "Некорректный формат Email (например: name@mail.ru).";
+            resultMsg.classList.add("error-text");
+            resultMsg.style.display = "block";
+            return false;
+        }
+
+        // Проверка Телефона
+        if (!phoneRegex.test(phone) || phone.replace(/\D/g, "").length < 10) {
+            resultMsg.textContent = "Введите корректный номер телефона (минимум 10 цифр).";
+            resultMsg.classList.add("error-text");
+            resultMsg.style.display = "block";
+            return false;
+        }
+
+        // Если все проверки пройдены — запускаем fetch отправку
         resultMsg.textContent = "Отправка данных...";
         resultMsg.style.display = "block";
 
@@ -102,8 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (response.ok) {
                 resultMsg.textContent = "Форма успешно отправлена! ✨";
                 resultMsg.classList.add("success-text");
-                
-                // Очистка формы и LocalStorage
                 form.reset();
                 localStorage.clear();
             } else {
