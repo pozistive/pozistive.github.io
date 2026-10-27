@@ -454,7 +454,7 @@ section.calculator-section {
     }
 }
 
-/* Новая разметка адаптивного слайдера */
+/* Возвращенная стабильная разметка слайдера */
 .gallery-section {
     margin: 30px 0;
     background: #ffffff;
@@ -466,45 +466,16 @@ section.calculator-section {
 
 .chill-slider {
     display: flex;
-    transition: transform 0.4s ease-in-out;
-    /* Убираем жесткое ограничение ширины контейнера, чтобы он мог быть шире экрана */
-    width: max-content; 
+    transition: transform 0.4s ease-in-out; /* Плавная анимация прокрутки */
+    width: 100%;
     padding: 0;
     margin: 0;
 }
 
 .chill-slider > div {
-    /* 
-       Используем жесткое вычисление ширины: 
-       calc(100vw / 3) на десктопе означает "ровно треть от ширины экрана" 
-    */
-    width: calc((100vw - 120px) / 3); 
-    flex-shrink: 0; /* Категорически запрещаем браузеру сжимать блоки картинок */
+    flex: 0 0 33.3333%; /* Ровно 3 изображения на ПК по ТЗ */
     padding: 0 8px;
     box-sizing: border-box;
-}
-
-/* Корректировка ширины для основного контента, чтобы расчет calc() совпал идеально */
-@media (min-width: 768px) {
-    .chill-slider > div {
-        /* На ПК, где контент ограничен максимальной шириной main-content */
-        width: 250px; /* Задаем фиксированную уютную ширину для каждого слайда */
-    }
-    .gallery-section {
-        max-width: 790px; /* Ограничиваем галерею, чтобы влезало ровно 3 картинки по 250px + отступы */
-        margin: 30px auto;
-    }
-}
-
-/* Адаптивность для мобильных телефонов */
-@media (max-width: 767px) {
-    .chill-slider > div {
-        width: calc(100vw - 70px); /* Ровно один слайд на всю ширину мобильного экрана */
-        flex-shrink: 0;
-    }
-    .gallery-section {
-        width: auto;
-    }
 }
 
 .chill-slider div img {
@@ -554,7 +525,6 @@ section.calculator-section {
     transition: all 0.2s;
 }
 
-/* Подсветка активной страницы в пейджере */
 .custom-dots .dot.active {
     background: #4a4458;
     transform: scale(1.2);
@@ -564,8 +534,5 @@ section.calculator-section {
 @media (max-width: 767px) {
     .chill-slider > div {
         flex: 0 0 100%; /* На смартфонах отображается ровно 1 изображение */
-    }
-    .chill-slider div img {
-        height: 200px;
     }
 }
