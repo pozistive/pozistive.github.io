@@ -521,3 +521,137 @@ section.calculator-section {
         flex: 0 0 100%; /* На смартфонах отображается ровно 1 изображение */
     }
 }
+
+/* ==========================================================================
+   5. ВЫПОЛНЕНИЕ ЗАДАНИЯ 8: Стили для Модального окна обратной связи
+   ========================================================================== */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 62, 53, 0.6); /* Полупрозрачный фирменный фон */
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.popup-content {
+    background-color: #fffcee;
+    border: 2px solid #ebd0ad;
+    border-radius: 20px;
+    padding: 25px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Полное вписывание в экран мобилки без скролла */
+    max-height: 95vh;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+}
+
+.close-popup-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #4a544f;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-popup-btn:hover {
+    color: #c96868;
+}
+
+.popup-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e35;
+}
+
+/* Компактные поля, чтобы влезало на любой экран */
+.popup-content .form-group {
+    margin-bottom: 12px;
+}
+
+.popup-content label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a544f;
+}
+
+.popup-content input[type="text"],
+.popup-content input[type="email"],
+.popup-content input[type="tel"],
+.popup-content textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.95rem;
+    border: 1px solid #d1dcd5;
+    border-radius: 10px;
+    background-color: #fafdfb;
+    font-family: inherit;
+    outline: none;
+}
+
+.popup-content textarea {
+    height: 70px; /* Делаем поле сообщения компактным */
+    resize: none;
+}
+
+.checkbox-group {
+    margin: 10px 0;
+}
+
+#submit-form-btn {
+    font-family: inherit;
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #b8dbbf 0%, #a2cfa9 100%);
+    color: #2c3e35;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#submit-form-btn:hover { opacity: 0.9; }
+
+/* Стили вывода статуса отправки */
+.popup-result-text {
+    display: none;
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background-color: #f2f4f5;
+}
+
+/* Кнопка открытия в дизайне шапки */
+.open-form-btn {
+    font-family: inherit;
+    background-color: #2c3e35;
+    color: #fffcee;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+.open-form-btn:hover {
+    background-color: #4a544f;
+}
