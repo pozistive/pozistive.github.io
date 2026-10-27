@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Твой Уютный Уголок Спокойствия</title>
-    
-    <!-- Твои стили (в них мы добавим адаптивность слайдера) -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Подключаем только твой рабочий jQuery и наш скрипт управления -->
     <script src="jquery-3.6.0.min.js"></script>
     <script src="slider-init.js"></script>
     <script src="calculator.js"></script>
+    <script src="form.js"></script>
 </head>
 <body>
 
@@ -27,6 +24,7 @@
                 <li><a href="#intro">О нас</a></li>
                 <li><a href="#content">Трекер</a></li>
                 <li><a href="#links">Ресурсы</a></li>
+                <button type="button" class="open-form-btn">Связаться с нами ✨</button>
             </ul>
         </nav>
     </div>
@@ -173,6 +171,45 @@
     <footer class="main-footer">
         <p>Footer (Футер) &copy; 2026. Атмосфера тепла и полной гармонии.</p>
     </footer>
-
+    <!-- ВЫПОЛНЕНИЕ ЗАДАНИЯ 8: Модальное окно с формой обратной связи -->
+    <div id="contact-popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <button type="button" class="close-popup-btn">&times;</button>
+            <h2>Обратная связь</h2>
+            
+            <!-- Вставьте сюда ваш ID формы от Formcarry или Slapform вместо YOUR_FORM_ID -->
+            <form id="feedback-form" action="https://slapform.com" method="POST">
+                <div class="form-group">
+                    <label for="user-fio">ФИО:</label>
+                    <input type="text" id="user-fio" name="fio" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-email">Email:</label>
+                    <input type="email" id="user-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-phone">Телефон:</label>
+                    <input type="tel" id="user-phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-org">Организация:</label>
+                    <input type="text" id="user-org" name="organization">
+                </div>
+                <div class="form-group">
+                    <label for="user-message">Сообщение:</label>
+                    <textarea id="user-message" name="message" required></textarea>
+                </div>
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="user-agree" name="agree" required>
+                        Согласен с политикой обработки данных
+                    </label>
+                </div>
+                <button type="submit" id="submit-form-btn">Отправить</button>
+            </form>
+            
+            <div id="form-result-message" class="popup-result-text"></div>
+        </div>
+    </div>
 </body>
 </html>
