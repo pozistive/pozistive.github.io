@@ -555,6 +555,15 @@ section.calculator-section {
     flex-direction: column;
 }
 
+/* Фикс для ПК: убираем тесноту и лишний скроллбар на больших экранах */
+@media (min-width: 768px) {
+    .popup-content {
+        max-height: none; /* Разрешаем форме раскрыться в полную высоту */
+        overflow-y: visible; /* Прячем внутреннюю полосу прокрутки */
+        padding: 30px 35px; /* Даем полям чуть больше уютного пространства */
+    }
+}
+
 .close-popup-btn {
     position: absolute;
     top: 15px;
