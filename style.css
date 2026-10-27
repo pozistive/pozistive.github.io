@@ -454,17 +454,87 @@ section.calculator-section {
     }
 }
 
-.slick-slider { position: relative; display: block; box-sizing: border-box; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -khtml-user-select: none; -ms-touch-action: pan-y; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
-.slick-list { position: relative; display: block; overflow: hidden; margin: 0; padding: 0; }
-.slick-list:focus { outline: none; }
-.slick-list.dragging { cursor: pointer; cursor: hand; }
-.slick-slider .slick-track, .slick-slider .slick-list { -webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
-.slick-track { position: relative; top: 0; left: 0; display: flex !important; }
-.slick-track:before, .slick-track:after { display: table; content: ''; }
-.slick-track:after { clear: both; }
-.slick-slide { display: none; float: left; height: 100%; min-height: 1px; }
-.slick-slide img { display: block; }
-.slick-initialized .slick-slide { display: block; }
+/* Новая разметка адаптивного слайдера */
+.gallery-section {
+    margin: 30px 0;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid #dce8ce;
+    overflow: hidden; /* Прячем картинки, выходящие за рамки */
+}
 
-/* Позиционирование кастомных кнопок */
-.gallery-section { position: relative; }
+.chill-slider {
+    display: flex;
+    transition: transform 0.4s ease-in-out; /* Плавная анимация прокрутки */
+    width: 100%;
+}
+
+.chill-slider > div {
+    flex: 0 0 33.3333%; /* По умолчанию на ПК отображается 3 изображения (Задание 7) */
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+.chill-slider div img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Кнопки управления и пейджер */
+.slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.custom-prev, .custom-next {
+    background: #e3dff2;
+    color: #4a4458;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.custom-prev:hover, .custom-next:hover {
+    background: #4a4458;
+    color: #ffffff;
+}
+
+.custom-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.custom-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e3dff2;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* Подсветка активной страницы в пейджере */
+.custom-dots .dot.active {
+    background: #4a4458;
+    transform: scale(1.2);
+}
+
+/* Адаптивность для мобильных устройств (Задание 7) */
+@media (max-width: 767px) {
+    .chill-slider > div {
+        flex: 0 0 100%; /* На смартфонах отображается ровно 1 изображение */
+    }
+    .chill-slider div img {
+        height: 200px;
+    }
+}
