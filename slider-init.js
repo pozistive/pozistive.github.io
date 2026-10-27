@@ -16,10 +16,12 @@ jQuery(document).ready(function ($) {
 
     var $dotsContainer = $(".custom-dots");
 
-    // 2. Генерируем пейджер (Требование 2)
+    // 2. Генерируем пейджер и двигаем ленту
     function updatePager() {
-        var slidesToShow = ($(window).width() < 768) ? 1 : 3,
+        var isMobile = ($(window).width() < 768),
+            slidesToShow = isMobile ? 1 : 3,
             maxIndex = totalSlides - slidesToShow,
+            stepPercent = isMobile ? 100 : 33.3333, // Сдвиг на 100% или на 33.33% за шаг
             i;
 
         if (currentIndex > maxIndex) { currentIndex = maxIndex; }
@@ -36,9 +38,8 @@ jQuery(document).ready(function ($) {
             }
         }
 
-        // Сдвигаем слайдер (Технология без перезагрузки страницы)
-        var slideWidth = $slides.first().outerWidth();
-        $slider.css("transform", "translateX(" + (-currentIndex * slideWidth) + "px)");
+        // Двигаем слайдер через точные проценты флекс-долей (Технология без перезагрузки)
+        $slider.css("transform", "translateX(" + (-currentIndex * stepPercent) + "%)");
     }
 
     // 3. Логика перелистывания по клику на стрелки
