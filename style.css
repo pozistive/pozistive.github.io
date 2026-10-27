@@ -466,14 +466,45 @@ section.calculator-section {
 
 .chill-slider {
     display: flex;
-    transition: transform 0.4s ease-in-out; /* Плавная анимация прокрутки */
-    width: 100%;
+    transition: transform 0.4s ease-in-out;
+    /* Убираем жесткое ограничение ширины контейнера, чтобы он мог быть шире экрана */
+    width: max-content; 
+    padding: 0;
+    margin: 0;
 }
 
 .chill-slider > div {
-    flex: 0 0 33.3333%; /* По умолчанию на ПК отображается 3 изображения (Задание 7) */
+    /* 
+       Используем жесткое вычисление ширины: 
+       calc(100vw / 3) на десктопе означает "ровно треть от ширины экрана" 
+    */
+    width: calc((100vw - 120px) / 3); 
+    flex-shrink: 0; /* Категорически запрещаем браузеру сжимать блоки картинок */
     padding: 0 8px;
     box-sizing: border-box;
+}
+
+/* Корректировка ширины для основного контента, чтобы расчет calc() совпал идеально */
+@media (min-width: 768px) {
+    .chill-slider > div {
+        /* На ПК, где контент ограничен максимальной шириной main-content */
+        width: 250px; /* Задаем фиксированную уютную ширину для каждого слайда */
+    }
+    .gallery-section {
+        max-width: 790px; /* Ограничиваем галерею, чтобы влезало ровно 3 картинки по 250px + отступы */
+        margin: 30px auto;
+    }
+}
+
+/* Адаптивность для мобильных телефонов */
+@media (max-width: 767px) {
+    .chill-slider > div {
+        width: calc(100vw - 70px); /* Ровно один слайд на всю ширину мобильного экрана */
+        flex-shrink: 0;
+    }
+    .gallery-section {
+        width: auto;
+    }
 }
 
 .chill-slider div img {
