@@ -9,21 +9,47 @@
     <script src="slider-init.js"></script>
     <script src="calculator.js"></script>
     <script src="form.js"></script>
+    <script src="menu.js"></script>
 </head>
 <body>
 
-    <!-- Единая верхняя зона (Шапка + Навигация) -->
+    <!-- Единая верхняя зона (Шапка + Видео + Навигация) -->
     <div class="top-story-zone" id="home">
+        <video class="header-bg-video" autoplay loop muted playsinline>
+            <source src="ChillVideo.mp4" type="video/mp4">
+        </video>
+        <div class="header-overlay"></div>
+
         <header class="main-header">
-            <h1>Пространство Chill Out</h1>
+            <div class="header-top-bar">
+                <h1>Пространство Chill Out</h1>
+                <button type="button" class="mobile-menu-toggle" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </header>
 
         <nav class="main-nav">
             <ul class="nav-list">
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#intro">О нас</a></li>
-                <li><a href="#content">Трекер</a></li>
-                <li><a href="#links">Ресурсы</a></li>
+                <li class="has-dropdown">
+                    <a href="#content" class="dropdown-trigger">Трекер ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#content">Уютная галерея</a></li>
+                        <li><a href="#content">Ритуалы спокойствия</a></li>
+                        <li><a href="#order-form">Калькулятор дзена</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#links" class="dropdown-trigger">Ресурсы ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#links">Фоновые звуки</a></li>
+                        <li><a href="#links">Послание Вселенной</a></li>
+                    </ul>
+                </li>
             </ul>
             <button type="button" class="open-form-btn">Связаться с нами ✨</button>
         </nav>
@@ -34,7 +60,6 @@
         <h2>Добро пожаловать в наше пространство</h2>
         <p>Мы создали это место, чтобы вы могли расслабиться и спокойно изучить всю необходимую информацию. Никакой суеты — только мягкие тона, чистый дизайн и удобная структура.</p>
     </section>
-
     <!-- Основной контейнер (Flex Box с изменением порядка на мобильных) -->
     <div class="content-wrapper" id="content">
         
