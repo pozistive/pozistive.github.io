@@ -672,6 +672,7 @@ section.calculator-section {
     position: relative;
     overflow: visible;
     z-index: 100;
+    background: transparent !important; /* Убираем сплошной фон родителя, чтобы не перекрывал видео */
 }
 
 .header-bg-video {
@@ -681,7 +682,7 @@ section.calculator-section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2;
+    z-index: 0; /* Поднимаем видео над фоном страницы */
 }
 
 .header-overlay {
@@ -690,8 +691,9 @@ section.calculator-section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(227, 238, 212, 0.78) 0%, rgba(210, 231, 214, 0.78) 100%);
-    z-index: -1;
+    /* Делаем градиент полупрозрачным (0.45), чтобы видео хорошо просвечивало */
+    background: linear-gradient(135deg, rgba(227, 238, 212, 0.45) 0%, rgba(210, 231, 214, 0.45) 100%);
+    z-index: 1;
 }
 
 .main-header,
